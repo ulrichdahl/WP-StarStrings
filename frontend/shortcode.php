@@ -29,7 +29,7 @@ function sc_loc_frontend_shortcode() {
     <div class="sc-loc-frontend">
         <h3>1. Definer Komponent Format</h3>
         <div class="sc-loc-help">
-            <div style="grid-column: 1 / span 2; margin-bottom: 10px;">
+            <div class="sc-loc-help-title">
                 <p>Byg dit format ved at trække elementerne (chips) herunder ned i det blå område.<br/>Du kan også klikke på knapperne for at tilføje mellemrum eller bindestreger.</p>
                 <p><small>
                         <button class="button success" onclick="document.getElementById('sc-loc-load-btn').click()">
@@ -165,7 +165,7 @@ function sc_loc_frontend_shortcode() {
                 <p><small>Hvis <code>user.cfg</code> ikke findes, skal du blot oprette en ny tekstfil med dette navn i <code>LIVE</code> mappen.</small></p>
             </div>
             <div>
-                <h4>Opsætning!</h4>
+                <h4>Gem din opsætning!</h4>
                 <p>
                     Husk at gemme din opsætning til den næste patch, så slipper du for at lave dit format og sortere
                     alle dine virtuelle rumskibe igen. Din gruppering og dine rettede navne bliver selvfølgelig også

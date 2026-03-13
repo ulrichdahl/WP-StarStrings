@@ -51,8 +51,13 @@
     border-left: 4px solid #007cba;
 }
 
-.sc-loc-help div:first-of-type {
-    width: 100%;
+.sc-loc-help div {
+    flex-basis: 30%;
+    text-align: center;
+}
+
+.sc-loc-help .sc-loc-help-title {
+    flex-basis: 100%;
     text-align: center;
 }
 .sc-loc-help ul {
