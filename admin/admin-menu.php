@@ -20,17 +20,28 @@ function sc_loc_add_admin_menu() {
 
 function sc_loc_admin_page() {
 	if ( isset( $_POST['sc_loc_upload_nonce'] ) && wp_verify_nonce( $_POST['sc_loc_upload_nonce'], 'sc_loc_upload_action' ) ) {
+		if ( isset( $_POST['sc_loc_global_ini_version'] ) ) {
+			update_option(
+				'sc_loc_global_ini_version',
+				sanitize_text_field( wp_unslash( $_POST['sc_loc_global_ini_version'] ) )
+			);
+		}
+
 		sc_loc_handle_uploads();
 		echo '<div class="updated"><p>Filer uploadet korrekt.</p></div>';
 	}
-	if (file_exists(SC_LOC_UPLOAD_DIR . '/counter')) {
-		$counter = (int)file_get_contents(SC_LOC_UPLOAD_DIR . '/counter');
-	}
-	else {
+
+	$global_ini_version = get_option( 'sc_loc_global_ini_version', '' );
+	$version_message = get_option( 'sc_loc_version_message', '' );
+
+	if ( file_exists( SC_LOC_UPLOAD_DIR . '/counter' ) ) {
+		$counter = (int) file_get_contents( SC_LOC_UPLOAD_DIR . '/counter' );
+	} else {
 		$counter = 0;
 	}
-	exec('ls -l '.SC_LOC_UPLOAD_DIR . '/', $out);
-	echo '<pre>'.implode('<br/>', $out).'</pre>';
+
+	exec( 'ls -l ' . SC_LOC_UPLOAD_DIR . '/', $out );
+	echo '<pre>' . implode( '<br/>', $out ) . '</pre>';
 	?>
 	<div class="wrap">
 		<h1>Star Citizen Localization Indstillinger</h1>
@@ -38,7 +49,35 @@ function sc_loc_admin_page() {
 			<?php wp_nonce_field( 'sc_loc_upload_action', 'sc_loc_upload_nonce' ); ?>
 			<table class="form-table">
 				<tr>
-					<th scope="row"><label for="global_ini">Global.ini (Hovedfil) i flere filer (max størrelse <?php echo ini_get('upload_max_filesize');?>Bytes)</label></th>
+					<th scope="row"><label for="sc_loc_global_ini_version">Seneste global.ini version</label></th>
+					<td>
+						<input
+							type="text"
+							name="sc_loc_global_ini_version"
+							id="sc_loc_global_ini_version"
+							class="regular-text"
+							value="<?php echo esc_attr( $global_ini_version ); ?>"
+							placeholder="f.eks. 4.7.0-11445650"
+						>
+						<p class="description">Denne version vises i frontend ved download-knappen.</p>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row"><label for="sc_loc_version_message">Version besked i hovedmenuen</label></th>
+					<td>
+						<input
+							type="text"
+							name="sc_loc_version_message"
+							id="sc_loc_version_message"
+							class="regular-text"
+							value="<?php echo esc_attr( $version_message ); ?>"
+							placeholder="f.eks. Alliance Aid"
+						>
+						<p class="description">Denne vil blive vist øverst i spillets hovedmenu, over knappen "Persistent Universe".</p>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row"><label for="global_ini">Global.ini (Hovedfil) i flere filer (max størrelse <?php echo ini_get( 'upload_max_filesize' ); ?>Bytes)</label></th>
 					<td>
 						<input type="file" name="global_ini" id="global_ini" accept=".zip">
 						<input type="file" name="global_ini_1" id="global_ini_1" accept=".z01">
@@ -53,20 +92,21 @@ function sc_loc_admin_page() {
 					<td><input type="file" name="vehicles_ini" id="vehicles_ini" accept=".ini"></td>
 				</tr>
 			</table>
-			<?php submit_button( 'Upload Filer' ); ?>
+			<?php submit_button( 'Gem og upload filer' ); ?>
 		</form>
 
 		<hr>
 		<h2>Nuværende Status</h2>
 		<ul>
-			<li>Downloads: <?php echo $counter;?></li>
-			<?php foreach(['global.ini', 'components.ini', 'vehicles.ini'] as $file) { ?>
-				<li><?php echo $file ?>: <?php echo file_exists( SC_LOC_UPLOAD_DIR . '/' . $file ) ? '<span style="color:green;">Uploadet</span> <a href="'.wp_upload_dir()["baseurl"] . '/sc-localization/' . $file.'" target="_blank">Download</a>' : '<span style="color:red;">Mangler</span>'; ?></li>
+			<li>Downloads: <?php echo $counter; ?></li>
+			<li>Seneste global.ini version: <?php echo $global_ini_version ? esc_html( $global_ini_version ) : '<span style="color:red;">Ikke angivet</span>'; ?></li>
+			<?php foreach ( array( 'global.ini', 'components.ini', 'vehicles.ini' ) as $file ) { ?>
+				<li><?php echo $file; ?>: <?php echo file_exists( SC_LOC_UPLOAD_DIR . '/' . $file ) ? '<span style="color:green;">Uploadet</span> <a href="' . wp_upload_dir()['baseurl'] . '/sc-localization/' . $file . '" target="_blank">Download</a>' : '<span style="color:red;">Mangler</span>'; ?></li>
 			<?php } // endforeach ?>
 		</ul>
 	</div>
 	<?php
-	exec('rm -f '.SC_LOC_UPLOAD_DIR . '/*.z* '.SC_LOC_UPLOAD_DIR . '/z*');
+	exec( 'rm -f ' . SC_LOC_UPLOAD_DIR . '/*.z* ' . SC_LOC_UPLOAD_DIR . '/z*' );
 }
 
 function sc_loc_handle_uploads() {

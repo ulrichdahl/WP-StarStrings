@@ -94,9 +94,11 @@ function sc_loc_handle_download() {
 	$format            = json_decode( $format_json, true );
 	$selected_vehicles = json_decode( $vehicles_json, true );
 
-	$global_path     = SC_LOC_UPLOAD_DIR . '/global.ini';
-	$components_path = SC_LOC_UPLOAD_DIR . '/components.ini';
-	$vehicles_path   = SC_LOC_UPLOAD_DIR . '/vehicles.ini';
+	$global_path        = SC_LOC_UPLOAD_DIR . '/global.ini';
+	$components_path    = SC_LOC_UPLOAD_DIR . '/components.ini';
+	$vehicles_path      = SC_LOC_UPLOAD_DIR . '/vehicles.ini';
+	$global_ini_version = trim( (string) get_option( 'sc_loc_global_ini_version', '' ) );
+	$version_message = trim( (string) get_option( 'sc_loc_version_message', '' ) );
 
 	if ( ! file_exists( $global_path ) ) {
 		wp_die( 'global.ini mangler' );
@@ -157,8 +159,11 @@ function sc_loc_handle_download() {
 	}
 
 	// Opdater global.ini indhold
-	$replacements['Frontend_PU_Version,P'] = '4.7 - .... (modified by uniteddanes.org)';
-	$output                                = "";
+	if ( $global_ini_version !== '' ) {
+		$replacements['Frontend_PU_Version,P'] = $global_ini_version . ' ' . (!empty($version_message) ? $version_message . ' ' : '') . SC_LOC_MESSAGE;
+	}
+
+	$output = "";
 	foreach ( $global_content as $line ) {
 		// Fjern eksisterende BOM hvis den findes i starten af filen
 		if ( $output === "" ) {
