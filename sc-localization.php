@@ -1,0 +1,30 @@
+<?php
+
+/*
+Plugin Name: Star Citizen Localization
+Plugin URI: https://github.com/ulrich/sc-localization
+Description: Star Citizen Localization Tool for WordPress.
+Version: 1.2
+Author: ulrich
+License: GPL2
+*/
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+define( 'SC_LOC_PATH', plugin_dir_path( __FILE__ ) );
+define( 'SC_LOC_URL', plugin_dir_url( __FILE__ ) );
+define( 'SC_LOC_UPLOAD_DIR', wp_upload_dir()['basedir'] . '/sc-localization' );
+
+// Register activation hook to create upload directory
+register_activation_hook( __FILE__, 'sc_loc_activate' );
+function sc_loc_activate() {
+	if ( ! file_exists( SC_LOC_UPLOAD_DIR ) ) {
+		wp_mkdir_p( SC_LOC_UPLOAD_DIR );
+	}
+}
+
+require_once SC_LOC_PATH . 'admin/admin-menu.php';
+require_once SC_LOC_PATH . 'includes/file-handler.php';
+require_once SC_LOC_PATH . 'frontend/shortcode.php';

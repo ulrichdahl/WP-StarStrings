@@ -1,0 +1,178 @@
+.sc-loc-frontend {
+    font-family: sans-serif;
+}
+.sc-loc-drop-zone {
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    min-height: 59px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    background: #f9f9f9;
+}
+.active-format {
+    border-color: #007cba;
+}
+.sc-loc-active-format-container {
+    display:flex;
+    grid-gap:1rem;
+    justify-content:space-between;
+    margin-bottom: 20px;
+}
+.sc-loc-active-format-container .active-format {
+    margin-bottom: 0;
+}
+#sc-loc-format-example {
+    flex-grow: 1;
+    text-align: left;
+    font-weight: bold;
+    border-bottom: 2px dashed #ccc;
+}
+.chip {
+    background: #e1e1e1;
+    padding: 5px 10px;
+    border-radius: 15px;
+    cursor: move;
+    user-select: none;
+    border: 1px solid #ccc;
+}
+.sc-loc-help {
+    display: flex;
+    justify-content: space-between;
+    grid-gap: 1rem;
+    /*background: #e7f3ff;*/
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    border-left: 4px solid #007cba;
+}
+.sc-loc-help>div {
+    width: 50%;
+}
+.sc-loc-help ul {
+    margin: 10px 0 0 20px;
+    padding: 0;
+}
+.sc-loc-help li {
+    text-align: left;
+}
+.sc-loc-separator-controls {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.sc-loc-separator-controls button {
+    padding: 5px 10px !important;
+    background: #f0f0f0 !important;
+    color: #333 !important;
+    border: 1px solid #ccc !important;
+    font-size: 12px;
+}
+.sc-loc-separator-controls button:hover {
+    background: #e0e0e0 !important;
+}
+.ui-state-highlight {
+    width: 100px;
+    height: 30px;
+    background: #ffffcc;
+    border: 1px dashed #ffcc00;
+    border-radius: 15px;
+}
+.chip.separator {
+    background: #fff;
+    border-style: dashed;
+}
+.active-format .chip:hover {
+    background: #ffcccc;
+    border-color: #ff0000;
+}
+.sc-loc-columns {
+    display: flex;
+    gap: 20px;
+}
+.sc-loc-col {
+    flex: 1;
+}
+.sc-loc-search-container {
+    margin-bottom: 10px;
+    min-height: 54px;
+    display: flex;
+    justify-content: flex-end;
+}
+#sc-loc-vehicle-clear {
+    padding: 10px 20px;
+    background: #bababa;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    max-height: 36px;
+}
+#sc-loc-vehicle-search {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.sc-loc-list {
+    border: 1px solid #ccc;
+    min-height: 200px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 400px;
+    overflow-y: auto;
+}
+.sc-loc-list li {
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+    background: #fff;
+    cursor: move;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.vehicle-name {
+    flex-grow: 1;
+}
+.edit-vehicle-btn {
+    background: none !important;
+    color: #007cba !important;
+    border: none !important;
+    padding: 2px 5px !important;
+    cursor: pointer;
+    font-size: 14px;
+}
+.edit-vehicle-name {
+    flex-grow: 1;
+    padding: 2px 5px;
+    border: 1px solid #007cba;
+    border-radius: 3px;
+    font-size: inherit;
+    font-family: inherit;
+}
+.sc-loc-list li:hover {
+    background: #f0f0f0;
+}
+.sc-loc-frontend button {
+    padding: 10px 20px;
+    background: #007cba;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.sc-loc-frontend button:hover {
+    background: #006ba1;
+}
+#sc-loc-download-btn {
+    width: 50%;
+    font-size: 2rem;
+    background-color: #46b450;
+}
