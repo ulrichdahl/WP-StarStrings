@@ -94,55 +94,109 @@ jQuery(document).ready(function($) {
     // Vehicle sortering
     scLocSortableList = $("#sc-loc-available-vehicles, #sc-loc-selected-vehicles").sortable({
         connectWith: ".sc-loc-list",
+        placeholder: "ui-state-highlight",
         receive: function(event, ui) {
             updateVehicleItem(ui.item);
+            updateAllVehiclePrefixes();
+        },
+        update: function (event, ui) {
+            if (this.id === "sc-loc-selected-vehicles") {
+                updateAllVehiclePrefixes();
+            }
         }
     }).disableSelection();
+
+    function updateAllVehiclePrefixes() {
+        var count = 0;
+        var selectedLis = $("#sc-loc-selected-vehicles li");
+        var totalMainVehicles = selectedLis.filter(function () {
+            return !$(this).hasClass('is-nested');
+        }).length;
+        var usePadding = totalMainVehicles > 9;
+
+        selectedLis.each(function () {
+            var li = $(this);
+            if (!li.hasClass('is-nested')) {
+                count++;
+            }
+            var prefix = count;
+            if (usePadding && count < 10) {
+                prefix = "0" + count;
+            }
+            li.find(".vehicle-prefix-label").text(prefix + ". ");
+        });
+    }
 
     function updateVehicleItem(item) {
         var isSelected = item.closest("#sc-loc-selected-vehicles").length > 0;
         if (isSelected) {
-            if (item.find(".edit-vehicle-name").length === 0) {
+            if (item.find(".vehicle-controls").length === 0) {
                 var currentName = item.find(".vehicle-name").text();
-                item.append('<button class="edit-vehicle-btn" title="Rediger navn">✎</button>');
-                item.append('<input type="text" class="edit-vehicle-name" value="' + currentName + '" style="display:none">');
+                var currentIndex = item.index() + 1;
+                item.prepend('<span class="vehicle-prefix-label">' + currentIndex + '. </span>');
+
+                var controls = $('<div class="vehicle-controls"></div>');
+                controls.append('<button class="nest-vehicle-btn unindent-vehicle" title="Udryk">↙</button>');
+                controls.append('<button class="nest-vehicle-btn indent-vehicle" title="Indryk">↗</button>');
+                controls.append('<button class="edit-vehicle-btn" title="Rediger navn">✎</button>');
+                item.append(controls);
+
+                item.append('<div class="edit-vehicle-fields" style="display:none; flex-grow: 1; gap: 5px;">' +
+                    '<input type="text" class="edit-vehicle-name" value="' + currentName + '" style="flex-grow: 1;">' +
+                    '</div>');
             }
         } else {
-            item.find(".edit-vehicle-btn, .edit-vehicle-name").remove();
+            item.removeClass('is-nested');
+            item.find(".vehicle-prefix-label, .vehicle-controls, .edit-vehicle-fields").remove();
             item.find(".vehicle-name").show();
         }
     }
+
+    // Håndter indrykning (nesting)
+    $(document).on('click', '.nest-vehicle-btn', function (e) {
+        e.stopPropagation();
+        var li = $(this).closest('li');
+        // Kan kun indrykke hvis det ikke er det første element
+        if (li.index() > 0 || li.hasClass('is-nested')) {
+            li.toggleClass('is-nested');
+            updateAllVehiclePrefixes();
+        }
+    });
 
     // Håndter klik på rediger knap
     $(document).on('click', '.edit-vehicle-btn', function(e) {
         e.stopPropagation();
         var li = $(this).closest('li');
-        li.find(".vehicle-name").hide();
-        $(this).hide();
-        li.find(".edit-vehicle-name").show().focus();
+        li.find(".vehicle-name, .vehicle-prefix-label, .vehicle-controls").hide();
+        li.find(".edit-vehicle-fields").css('display', 'flex');
+        li.find(".edit-vehicle-name").focus();
     });
 
     // Gem navn ved enter eller blur
     $(document).on('keyup', '.edit-vehicle-name', function(e) {
         if (e.which === 13) {
-            $(this).blur();
+            saveVehicleEdit($(this).closest('li'));
         }
     });
 
     $(document).on('blur', '.edit-vehicle-name', function() {
-        var li = $(this).closest('li');
-        var newName = $(this).val();
-        li.find(".vehicle-name").text(newName).show();
-        li.find(".edit-vehicle-btn").show();
-        $(this).hide();
+        saveVehicleEdit($(this).closest('li'));
     });
+
+    function saveVehicleEdit(li) {
+        var newName = li.find(".edit-vehicle-name").val();
+        li.find(".vehicle-name").text(newName).show();
+        li.find(".vehicle-prefix-label, .vehicle-controls").show();
+        li.find(".edit-vehicle-fields").hide();
+    }
 
     // Nulstil vehicle sortering
     $("#sc-loc-vehicle-clear").on('click', function() {
         if (confirm("Er du sikker på, at du vil nulstille sorteringen? Alle valgte fartøjer flyttes tilbage.")) {
             $("#sc-loc-selected-vehicles li").each(function() {
                 var li = $(this);
-                li.find(".edit-vehicle-btn, .edit-vehicle-name").remove();
+                li.removeClass('is-nested');
+                li.find(".vehicle-prefix-label, .vehicle-controls, .edit-vehicle-fields").remove();
                 li.find(".vehicle-name").text(li.data('name')).show();
                 $("#sc-loc-available-vehicles").append(li);
             });
@@ -172,6 +226,7 @@ jQuery(document).ready(function($) {
         $("#sc-loc-selected-vehicles li").each(function() {
             selectedVehicles.push({
                 key: $(this).data('key'),
+                is_nested: $(this).hasClass('is-nested'),
                 name: $(this).find(".vehicle-name").text()
             });
         });
@@ -209,13 +264,21 @@ jQuery(document).ready(function($) {
                 console.log("Opsætning genetableret:", minOpsaetning);
                 alert("Opsætningen er indlæst!");
 
-                // Her skal du kalde din egen funktion, der opdaterer siden
-                // f.eks. opdaterBrugerflade();
+                // Ryd eksisterende format og valgte biler før indlæsning
+                $("#sc-loc-clear-format").trigger('click');
+                $("#sc-loc-selected-vehicles li").each(function () {
+                    var li = $(this);
+                    li.removeClass('is-nested');
+                    li.find(".vehicle-prefix-label, .vehicle-controls, .edit-vehicle-fields").remove();
+                    li.find(".vehicle-name").text(li.data('name')).show();
+                    $("#sc-loc-available-vehicles").append(li);
+                });
+
                 $("#sc-loc-format-input").val(JSON.stringify(minOpsaetning.components));
                 const formatContainer = $("#sc-loc-active-format");
                 minOpsaetning.components.forEach(emne => {
                     if (emne.type === 'variable') {
-                        let item = $("#sc-loc-format-builder div[data-type="+emne.value+"]").remove();
+                        let item = $("#sc-loc-format-builder div[data-type=" + emne.value + "]").detach();
                         formatContainer.append(item);
                     }
                     else if (emne.type === 'text') {
@@ -223,18 +286,41 @@ jQuery(document).ready(function($) {
                     }
                 });
                 scLocSortableFormat.sortable("refresh");
+
                 const listeContainer = $("#sc-loc-selected-vehicles");
                 minOpsaetning.vehicles.forEach(emne => {
-                    let li = document.createElement('li');
-                    // Sæt data-attributter (svarende til dit PHP-output)
-                    li.setAttribute('data-key', emne.key);
-                    li.setAttribute('data-name', emne.name);
-                    // Indsæt indholdet (span med navnet)
-                    li.innerHTML = `<span class="vehicle-name">${emne.name}</span><button class="edit-vehicle-btn" title="Rediger navn">✎</button>
-<input type="text" class="edit-vehicle-name" value="${emne.name}" style="display:none">`;
-                    // Tilføj til listen
-                    listeContainer.append(li);
+                    // Prøv at finde det eksisterende element i "Tilgængelige"
+                    let li = $("#sc-loc-available-vehicles li[data-key='" + emne.key + "']");
+
+                    if (li.length > 0) {
+                        // Flyt det eksisterende element
+                        li.detach().appendTo(listeContainer);
+                    } else {
+                        // Hvis det ikke findes (måske fjernet fra INI), opret et nyt
+                        li = $('<li data-key="' + emne.key + '" data-name="' + emne.name + '"><span class="vehicle-name">' + emne.name + '</span></li>');
+                        li.appendTo(listeContainer);
+                    }
+
+                    // Opdater elementet med gemt status
+                    updateVehicleItem(li);
+                    li.find(".vehicle-name").text(emne.name);
+                    li.find(".edit-vehicle-name").val(emne.name);
+
+                    if (emne.is_nested) {
+                        li.addClass('is-nested');
+                    }
                 });
+
+                // Sorter tilgængelige alfabetisk igen
+                var listItems = $("#sc-loc-available-vehicles li").get();
+                listItems.sort(function (a, b) {
+                    return $(a).find(".vehicle-name").text().toUpperCase().localeCompare($(b).find(".vehicle-name").text().toUpperCase());
+                });
+                $.each(listItems, function (i, itm) {
+                    $("#sc-loc-available-vehicles").append(itm);
+                });
+
+                updateAllVehiclePrefixes();
                 scLocSortableList.sortable("refresh");
                 updateFormatInput();
             } catch (fejl) {
@@ -252,6 +338,7 @@ jQuery(document).ready(function($) {
         $("#sc-loc-selected-vehicles li").each(function() {
             selectedVehicles.push({
                 key: $(this).data('key'),
+                is_nested: $(this).hasClass('is-nested'),
                 name: $(this).find(".vehicle-name").text()
             });
         });

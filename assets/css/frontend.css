@@ -42,6 +42,7 @@
     display: flex;
     justify-content: space-between;
     grid-gap: 1rem;
+    flex-wrap: wrap;
     /*background: #e7f3ff;*/
     background: #f9f9f9;
     padding: 15px;
@@ -49,8 +50,10 @@
     margin-bottom: 20px;
     border-left: 4px solid #007cba;
 }
-.sc-loc-help>div {
-    width: 50%;
+
+.sc-loc-help div:first-of-type {
+    width: 100%;
+    text-align: center;
 }
 .sc-loc-help ul {
     margin: 10px 0 0 20px;
@@ -58,6 +61,7 @@
 }
 .sc-loc-help li {
     text-align: left;
+    font-size: smaller;
 }
 .sc-loc-separator-controls {
     margin-bottom: 10px;
@@ -137,20 +141,67 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    transition: margin 0.2s;
+}
+
+.sc-loc-list li:has(+ .is-nested),
+.sc-loc-list li.is-nested {
+    margin-left: 30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background: #fafafa;
+    border-left: 3px solid #007cba;
+}
+
+.sc-loc-list li:not(.is-nested):has(+ .is-nested) {
+    border-top: 3px solid #007cba;
+}
+
+.sc-loc-list li:is(.is-nested) {
+    border-bottom: 3px solid #007cba;
+}
+
+.sc-loc-list li:is(.is-nested):has(+ .is-nested) {
+    border-bottom: 1px solid #eee;
+}
+
+.vehicle-prefix-label {
+    font-weight: bold;
+    margin-right: 5px;
+    color: #555;
+    min-width: 20px;
 }
 .vehicle-name {
     flex-grow: 1;
 }
-.edit-vehicle-btn {
+
+.vehicle-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.edit-vehicle-btn, .nest-vehicle-btn {
     background: none !important;
     color: #007cba !important;
     border: none !important;
     padding: 2px 5px !important;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 24px;
+    font-weight: bold;
 }
-.edit-vehicle-name {
-    flex-grow: 1;
+
+.nest-vehicle-btn {
+    color: #46b450 !important;
+}
+
+.sc-loc-list li:first-of-type .indent-vehicle,
+.sc-loc-list li:first-of-type .unindent-vehicle,
+.sc-loc-list li:is(.is-nested) .indent-vehicle,
+.sc-loc-list li:not(.is-nested) .unindent-vehicle {
+    display: none;
+}
+
+.edit-vehicle-fields input {
     padding: 2px 5px;
     border: 1px solid #007cba;
     border-radius: 3px;

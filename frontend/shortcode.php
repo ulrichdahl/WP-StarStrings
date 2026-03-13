@@ -29,19 +29,38 @@ function sc_loc_frontend_shortcode() {
     <div class="sc-loc-frontend">
         <h3>1. Definer Komponent Format</h3>
         <div class="sc-loc-help">
-            <div>
+            <div style="grid-column: 1 / span 2; margin-bottom: 10px;">
                 <p>Byg dit format ved at trække elementerne (chips) herunder ned i det blå område.<br/>Du kan også klikke på knapperne for at tilføje mellemrum eller bindestreger.</p>
-                <p><small>Tip: Dobbeltklik på et element i det blå felt for at fjerne det igen.</small></p>
-                <p><small>Indlæs din opsætning fra sidste patch:<br/><input type="file" id="sc-loc-load-btn" style="display:none" accept=".json">
-                        <button class="button success" onclick="document.getElementById('sc-loc-load-btn').click()">Indlæs din opsætning</button></small></p>
+                <p><small>
+                        <button class="button success" onclick="document.getElementById('sc-loc-load-btn').click()">
+                            Indlæs din opsætning fra sidste patch
+                        </button>
+                    </small></p>
+                <input type="file" id="sc-loc-load-btn" style="display:none" accept=".json">
             </div>
             <div>
                 <ul>
-                    <li><strong>Type:</strong> Komponentens type (f.eks. COOL eller C for Cooler).</li>
-                    <li><strong>Klassificering:</strong> MIL (Military), STL (Stealth), CIV (Civilian), CMP (Competition).</li>
-                    <li><strong>Størrelse:</strong> S1, S2, S3 osv.</li>
-                    <li><strong>Kvalitet:</strong> A, B, C, D.</li>
-                    <li><strong>Navn:</strong> Komponentens faktiske navn.</li>
+                    <li><strong>Type:</strong><br/>
+                        COOL eller C for Cooler<br/>
+                        POWR eller P for Powerplant<br/>
+                        SHLD eller S for Shield<br/>
+                        QDRV eller Q for Quantumdrive<br/>
+                        RADR eller R for Radar<br/>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li><strong>Klassificering:</strong><br/>CIV eller C (Civilian)<br/>CMP eller R (Competition/Racing)<br/>IND
+                        eller I (Industriel)<br/>MIL eller M (Military)<br/>STL eller S (Stealth)
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li><strong>Størrelse:</strong><br/>1, 2, 3 osv.</li>
+                    <li><strong>Kvalitet:</strong><br/>A, B, C, D.</li>
+                    <li><strong>Navn:</strong><br/>Komponentens faktiske navn.</li>
                 </ul>
             </div>
         </div>
@@ -72,7 +91,9 @@ function sc_loc_frontend_shortcode() {
                 Ryd og start forfra
             </button>
         </div>
-
+        <div class="sc-loc-help">
+            <i>Tip: Dobbeltklik på et element i det blå felt for at fjerne det igen.</i>
+        </div>
         <div class="sc-loc-active-format-container">
             <span>Eksempel på komponent navn i spillet:</span>
             <div id="sc-loc-format-example">
@@ -89,7 +110,9 @@ function sc_loc_frontend_shortcode() {
             </div>
             <div>
                 <p><small>Tip: Du kan trække fartøjer tilbage til den tilgængelige liste for at fjerne dem, eller trykke på "Ryd listen" for at nulstille.</small></p>
-                <p><small>Bonustip: Du kan ændre navnet på dine favorit fartøjer, ved at klikke på det lille rediger ikon i den sorterede liste.</small></p>
+                <p><small>Bonustip: Du kan gruppere fartøjer ved at klikke på ⇄ ikonet. Indrykkede fartøjer vil dele det
+                        samme nummer som det overstående fartøj. Du kan stadig ændre navnet ved at klikke på ✎.</small>
+                </p>
             </div>
         </div>
         <div class="sc-loc-columns">
@@ -144,7 +167,9 @@ function sc_loc_frontend_shortcode() {
             <div>
                 <h4>Opsætning!</h4>
                 <p>
-                    Husk at gemme din opsætning til den næste patch, så slipper du for at lave dit format og sortere alle din virtuelle rumskibe igen.
+                    Husk at gemme din opsætning til den næste patch, så slipper du for at lave dit format og sortere
+                    alle dine virtuelle rumskibe igen. Din gruppering og dine rettede navne bliver selvfølgelig også
+                    gemt.
                 </p>
                 <button id="sc-loc-save-btn" class="button success">Gem din opsætning<br/>til den næste patch</button>
             </div>

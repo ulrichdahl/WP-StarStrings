@@ -141,20 +141,30 @@ function sc_loc_handle_download() {
 	}
 
 	// Forbered vehicle erstatninger
-	$count          = 1;
-	$total_vehicles = count( $selected_vehicles );
+	$count               = 0;
+	$total_main_vehicles = 0;
+	foreach ( $selected_vehicles as $v_item ) {
+		if ( ! ( is_array( $v_item ) && ! empty( $v_item['is_nested'] ) ) ) {
+			$total_main_vehicles ++;
+		}
+	}
+	$use_padding   = $total_main_vehicles > 9;
+
 	foreach ( $selected_vehicles as $v_item ) {
 		$v_key       = is_array( $v_item ) ? $v_item['key'] : $v_item;
 		$custom_name = is_array( $v_item ) ? $v_item['name'] : ( isset( $vehicles_data[ $v_key ] ) ? $vehicles_data[ $v_key ] : '' );
+		$is_nested = is_array( $v_item ) && ! empty( $v_item['is_nested'] );
 
 		if ( $v_key && ( isset( $vehicles_data[ $v_key ] ) || $custom_name ) ) {
-			if ( $total_vehicles >= 10 ) {
-				$prefix = sprintf( "%02d. ", $count );
-			} else {
-				$prefix = sprintf( "%d. ", $count );
+			if ( ! $is_nested ) {
+				$count ++;
 			}
+			$display_count = $count;
+			if ( $use_padding && $count < 10 ) {
+				$display_count = "0" . $count;
+			}
+			$prefix = $display_count . ". ";
 			$replacements[ trim( $v_key ) ] = $prefix . $custom_name;
-			$count ++;
 		}
 	}
 
