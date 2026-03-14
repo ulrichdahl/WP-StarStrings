@@ -114,6 +114,7 @@ jQuery(document).ready(function($) {
         }).length;
         var usePadding = totalMainVehicles > 9;
 
+        var prePrefix = 0;
         selectedLis.each(function () {
             var li = $(this);
             if (!li.hasClass('is-nested')) {
@@ -123,7 +124,15 @@ jQuery(document).ready(function($) {
             if (usePadding && count < 10) {
                 prefix = "0" + count;
             }
-            li.find(".vehicle-prefix-label").text(prefix + ". ");
+            if (prePrefix === 0 && li.next()?.hasClass('is-nested')) {
+                prePrefix = 1;
+            } else if (li.hasClass('is-nested')) {
+                prePrefix += 1;
+            }
+            li.find(".vehicle-prefix-label").text(prefix + (prePrefix ? String.fromCharCode(96 + prePrefix) : '') + ". ");
+            if (prePrefix > 0 && !li.next()?.hasClass('is-nested')) {
+                prePrefix = 0;
+            }
         });
     }
 

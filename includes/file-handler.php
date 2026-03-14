@@ -150,10 +150,12 @@ function sc_loc_handle_download() {
 	}
 	$use_padding   = $total_main_vehicles > 9;
 
-	foreach ( $selected_vehicles as $v_item ) {
+	$postPrefix         = 0;
+	foreach ( $selected_vehicles as $i => $v_item ) {
 		$v_key       = is_array( $v_item ) ? $v_item['key'] : $v_item;
 		$custom_name = is_array( $v_item ) ? $v_item['name'] : ( isset( $vehicles_data[ $v_key ] ) ? $vehicles_data[ $v_key ] : '' );
 		$is_nested = is_array( $v_item ) && ! empty( $v_item['is_nested'] );
+		$is_next_nested = is_array( $selected_vehicles[ $i + 1 ] ?? null ) && ! empty( $selected_vehicles[ $i + 1 ]['is_nested'] );
 
 		if ( $v_key && ( isset( $vehicles_data[ $v_key ] ) || $custom_name ) ) {
 			if ( ! $is_nested ) {
@@ -163,8 +165,19 @@ function sc_loc_handle_download() {
 			if ( $use_padding && $count < 10 ) {
 				$display_count = "0" . $count;
 			}
+			if ( $postPrefix === 0 && $is_next_nested ) {
+				$postPrefix = 1;
+			} elseif ( $is_nested ) {
+				$postPrefix += 1;
+			}
+			if ( $postPrefix > 0 ) {
+				$display_count .= chr( 96 + $postPrefix );
+			}
 			$prefix = $display_count . ". ";
 			$replacements[ trim( $v_key ) ] = $prefix . $custom_name;
+			if ( $postPrefix > 0 && ! $is_next_nested ) {
+				$postPrefix = 0;
+			}
 		}
 	}
 
