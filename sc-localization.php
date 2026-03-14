@@ -4,7 +4,7 @@
 Plugin Name: Star Citizen Localization
 Plugin URI: https://github.com/ulrich/sc-localization
 Description: Star Citizen Localization Tool for WordPress.
-Version: 1.4.1
+Version: 1.4.2
 Author: ulrich
 License: GPL2
 */

@@ -183,7 +183,7 @@ function sc_loc_handle_download() {
 
 	// Opdater global.ini indhold
 	if ( $global_ini_version !== '' ) {
-		$replacements['Frontend_PU_Version,P'] = $global_ini_version . ' ' . (!empty($version_message) ? $version_message . ' ' : '') . SC_LOC_MESSAGE;
+		$replacements['Frontend_PU_Version'] = $global_ini_version . ' ' . ( ! empty( $version_message ) ? $version_message . ' ' : '' ) . SC_LOC_MESSAGE;
 	}
 
 	$output = "";
