@@ -36,14 +36,14 @@ jQuery(document).ready(function($) {
     });
 
     $("#sc-loc-custom-sep").on('click', function() {
-        var sep = prompt("Indtast adskillelsestegn:", "");
+        var sep = prompt(scLocData.i18n.enterSeparator, "");
         if (sep !== null && sep !== "") {
             appendSeparator(sep);
         }
     });
 
     function appendSeparator(sep) {
-        var label = sep === " " ? "Mellemrum" : sep;
+        var label = sep === " " ? scLocData.i18n.space : sep;
         $("#sc-loc-active-format").append('<div class="chip separator" data-type="text">' + label + '<span style="display:none">' + sep + '</span></div>');
         updateFormatInput();
     }
@@ -145,9 +145,9 @@ jQuery(document).ready(function($) {
                 item.prepend('<span class="vehicle-prefix-label">' + currentIndex + '. </span>');
 
                 var controls = $('<div class="vehicle-controls"></div>');
-                controls.append('<button class="nest-vehicle-btn unindent-vehicle" title="Udryk">↙</button>');
-                controls.append('<button class="nest-vehicle-btn indent-vehicle" title="Indryk">↗</button>');
-                controls.append('<button class="edit-vehicle-btn" title="Rediger navn">✎</button>');
+                controls.append('<button class="nest-vehicle-btn unindent-vehicle" title="' + scLocData.i18n.unindent + '">↙</button>');
+                controls.append('<button class="nest-vehicle-btn indent-vehicle" title="' + scLocData.i18n.indent + '">↗</button>');
+                controls.append('<button class="edit-vehicle-btn" title="' + scLocData.i18n.editName + '">✎</button>');
                 item.append(controls);
 
                 item.append('<div class="edit-vehicle-fields" style="display:none; flex-grow: 1; gap: 5px;">' +
@@ -201,7 +201,7 @@ jQuery(document).ready(function($) {
 
     // Nulstil vehicle sortering
     $("#sc-loc-vehicle-clear").on('click', function() {
-        if (confirm("Er du sikker på, at du vil nulstille sorteringen? Alle valgte fartøjer flyttes tilbage.")) {
+        if (confirm(scLocData.i18n.confirmReset)) {
             $("#sc-loc-selected-vehicles li").each(function() {
                 var li = $(this);
                 li.removeClass('is-nested');
@@ -241,7 +241,7 @@ jQuery(document).ready(function($) {
         });
 
         if (!format) {
-            alert("Vælg venligst et format til komponenter.");
+            alert(scLocData.i18n.selectFormat);
             return;
         }
 
@@ -271,7 +271,7 @@ jQuery(document).ready(function($) {
                 let minOpsaetning = JSON.parse(indhold); // Lav teksten tilbage til et objekt
 
                 console.log("Opsætning genetableret:", minOpsaetning);
-                alert("Opsætningen er indlæst!");
+                alert(scLocData.i18n.configLoaded);
 
                 // Ryd eksisterende format og valgte biler før indlæsning
                 $("#sc-loc-clear-format").trigger('click');
@@ -334,7 +334,7 @@ jQuery(document).ready(function($) {
                 updateFormatInput();
             } catch (fejl) {
                 console.error(fejl);
-                alert("Fejl: Filen er ikke en gyldig JSON-fil.");
+                alert(scLocData.i18n.invalidJson);
             }
         };
         læser.readAsText(fil);
@@ -353,7 +353,7 @@ jQuery(document).ready(function($) {
         });
 
         if (!format) {
-            alert("Vælg venligst et format til komponenter.");
+            alert(scLocData.i18n.selectFormat);
             return;
         }
 

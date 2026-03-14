@@ -1,0 +1,389 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Star Citizen Localization 1.3.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-14 13:30+0000\n"
+"PO-Revision-Date: 2026-03-14 13:30+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: da\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0\n"
+"X-Domain: sc-localization\n"
+
+#: admin/admin-menu.php:31
+msgid "Filer uploadet korrekt."
+msgstr "Filerne blev uploadet korrekt."
+
+#: admin/admin-menu.php:47
+msgid "Star Citizen Localization Indstillinger"
+msgstr "Indstillinger for Star Citizen Lokalisering"
+
+#: admin/admin-menu.php:52
+msgid "Seneste global.ini version"
+msgstr "Seneste global.ini-version"
+
+#: admin/admin-menu.php:60
+msgid "f.eks. 4.7.0-11445650"
+msgstr "f.eks. 4.7.0-11445650"
+
+#: admin/admin-menu.php:62
+msgid "Denne version vises i frontend ved download-knappen."
+msgstr "Denne version vises i brugerfladen ved download-knappen."
+
+#: admin/admin-menu.php:66
+msgid "Version besked i hovedmenuen"
+msgstr "Versionsbesked i hovedmenuen"
+
+#: admin/admin-menu.php:74
+msgid "f.eks. Alliance Aid"
+msgstr "f.eks. Alliance Aid"
+
+#: admin/admin-menu.php:76
+msgid "Denne vil blive vist øverst i spillets hovedmenu, over knappen \"Persistent Universe\"."
+msgstr "Denne vil blive vist øverst i spillets hovedmenu, over knappen \"Persistent Universe\"."
+
+#: admin/admin-menu.php:80
+#, php-format
+msgid "Global.ini (Hovedfil) i flere filer (max størrelse %sBytes)"
+msgstr "Global.ini (hovedfil) opdelt i flere filer (maks. størrelse %s bytes)"
+
+#: admin/admin-menu.php:87
+msgid "Components.ini"
+msgstr "Components.ini"
+
+#: admin/admin-menu.php:91
+msgid "Vehicles.ini"
+msgstr "Vehicles.ini"
+
+#: admin/admin-menu.php:95
+msgid "Gem og upload filer"
+msgstr "Gem og upload filer"
+
+#: admin/admin-menu.php:99
+msgid "Nuværende Status"
+msgstr "Nuværende status"
+
+#: admin/admin-menu.php:101
+#, php-format
+msgid "Downloads: %d"
+msgstr "Downloads: %d"
+
+#: admin/admin-menu.php:102
+#, php-format
+msgid "Seneste global.ini version: %s"
+msgstr "Seneste global.ini-version: %s"
+
+#: admin/admin-menu.php:102
+msgid "Ikke angivet"
+msgstr "Ikke angivet"
+
+#: admin/admin-menu.php:104
+msgid "Uploadet"
+msgstr "Uploadet"
+
+#: admin/admin-menu.php:104
+msgid "Download"
+msgstr "Download"
+
+#: admin/admin-menu.php:104
+msgid "Mangler"
+msgstr "Mangler"
+
+#: frontend/shortcode.php:11
+msgid "Der er ikke uploadet de nødvendige filer for at vi kan lave Star Citizen lokalisering endnu."
+msgstr "De nødvendige filer til Star Citizen-lokalisering er endnu ikke uploadet."
+
+#: frontend/shortcode.php:26
+msgid "Er du sikker på, at du vil nulstille sorteringen? Alle valgte fartøjer flyttes tilbage."
+msgstr "Er du sikker på, at du vil nulstille sorteringen? Alle valgte fartøjer flyttes tilbage til den tilgængelige liste."
+
+#: frontend/shortcode.php:27
+msgid "Indtast adskillelsestegn:"
+msgstr "Indtast adskillelsestegn:"
+
+#: frontend/shortcode.php:28
+msgid "Vælg venligst et format til komponenter."
+msgstr "Vælg venligst et format til komponenter."
+
+#: frontend/shortcode.php:29
+msgid "Opsætningen er indlæst!"
+msgstr "Opsætningen er indlæst!"
+
+#: frontend/shortcode.php:30
+msgid "Fejl: Filen er ikke en gyldig JSON-fil."
+msgstr "Fejl: Filen er ikke en gyldig JSON-fil."
+
+#: frontend/shortcode.php:31
+msgid "Udryk"
+msgstr "Udryk"
+
+#: frontend/shortcode.php:32
+msgid "Indryk"
+msgstr "Indryk"
+
+#: frontend/shortcode.php:33
+msgid "Rediger navn"
+msgstr "Rediger navn"
+
+#: frontend/shortcode.php:34
+msgid "Mellemrum"
+msgstr "Mellemrum"
+
+#: frontend/shortcode.php:35
+msgid "Søg efter fartøj..."
+msgstr "Søg efter fartøj..."
+
+#: frontend/shortcode.php:36
+#, php-format
+msgid "%s. Gruppe"
+msgstr "%s. Gruppe"
+
+#: frontend/shortcode.php:43
+msgid "1. Definer Komponent Format"
+msgstr "1. Definer komponentformat"
+
+#: frontend/shortcode.php:46
+msgid "Byg dit format ved at trække elementerne (chips) herunder ned i det blå område.<br/>Du kan også klikke på knapperne for at tilføje mellemrum eller bindestreger."
+msgstr "Byg dit format ved at trække elementerne (chips) herunder ned i det blå område.<br/>Du kan også klikke på knapperne for at tilføje mellemrum eller bindestreger."
+
+#: frontend/shortcode.php:49
+msgid "Indlæs din opsætning fra sidste patch"
+msgstr "Indlæs din opsætning fra sidste patch"
+
+#: frontend/shortcode.php:56
+msgid "Type:"
+msgstr "Type:"
+
+#: frontend/shortcode.php:57
+msgid "COOL eller C for Cooler<br/>POWR eller P for Powerplant<br/>SHLD eller S for Shield<br/>QDRV eller Q for Quantumdrive<br/>RADR eller R for Radar"
+msgstr "COOL eller C for Cooler (Køler)<br/>POWR eller P for Powerplant (Reaktor)<br/>SHLD eller S for Shield (Skjold)<br/>QDRV eller Q for Quantumdrive (Q-drev)<br/>RADR eller R for Radar"
+
+#: frontend/shortcode.php:62
+msgid "Klassificering:"
+msgstr "Klassificering:"
+
+#: frontend/shortcode.php:63
+msgid "CIV eller C (Civilian)<br/>CMP eller R (Competition/Racing)<br/>IND eller I (Industriel)<br/>MIL eller M (Military)<br/>STL eller S (Stealth)"
+msgstr "CIV eller C (Civilian)<br/>CMP eller R (Competition/Racing)<br/>IND eller I (Industrial)<br/>MIL eller M (Military)<br/>STL eller S (Stealth)"
+
+#: frontend/shortcode.php:68
+msgid "Størrelse:"
+msgstr "Størrelse:"
+
+#: frontend/shortcode.php:68
+msgid "1, 2, 3 osv."
+msgstr "1, 2, 3 osv."
+
+#: frontend/shortcode.php:69
+msgid "Kvalitet:"
+msgstr "Kvalitet:"
+
+#: frontend/shortcode.php:69
+msgid "A, B, C, D."
+msgstr "A, B, C, D."
+
+#: frontend/shortcode.php:70
+msgid "Navn:"
+msgstr "Navn:"
+
+#: frontend/shortcode.php:70
+msgid "Komponentens faktiske navn."
+msgstr "Komponentens faktiske navn."
+
+#: frontend/shortcode.php:77
+msgid "F.eks. COOL, POWR"
+msgstr "F.eks. COOL, POWR"
+
+#: frontend/shortcode.php:77
+msgid "Type (4 tegn)"
+msgstr "Type (4 tegn)"
+
+#: frontend/shortcode.php:78
+msgid "F.eks. C, P"
+msgstr "F.eks. C, P"
+
+#: frontend/shortcode.php:78
+msgid "Type (1 tegn)"
+msgstr "Type (1 tegn)"
+
+#: frontend/shortcode.php:79
+msgid "F.eks. MIL, STL"
+msgstr "F.eks. MIL, STL"
+
+#: frontend/shortcode.php:79
+msgid "Klassificering (3 tegn)"
+msgstr "Klassificering (3 tegn)"
+
+#: frontend/shortcode.php:80
+msgid "F.eks. M, S"
+msgstr "F.eks. M, S"
+
+#: frontend/shortcode.php:80
+msgid "Klassificering (1 tegn)"
+msgstr "Klassificering (1 tegn)"
+
+#: frontend/shortcode.php:81
+msgid "F.eks. S1, S2"
+msgstr "F.eks. S1, S2"
+
+#: frontend/shortcode.php:81
+msgid "Størrelse"
+msgstr "Størrelse"
+
+#: frontend/shortcode.php:82
+msgid "F.eks. A, B"
+msgstr "F.eks. A, B"
+
+#: frontend/shortcode.php:82
+msgid "Kvalitet"
+msgstr "Kvalitet"
+
+#: frontend/shortcode.php:83
+msgid "Selve navnet på komponenten"
+msgstr "Selve navnet på komponenten"
+
+#: frontend/shortcode.php:83
+msgid "Navn"
+msgstr "Navn"
+
+#: frontend/shortcode.php:87
+msgid "Tilføj adskiller:"
+msgstr "Tilføj adskiller:"
+
+#: frontend/shortcode.php:88
+msgid "Mellemrum [ ]"
+msgstr "Mellemrum [ ]"
+
+#: frontend/shortcode.php:89
+msgid "Bindestreg [-]"
+msgstr "Bindestreg [-]"
+
+#: frontend/shortcode.php:90
+msgid "Understreg [_]"
+msgstr "Understreg [_]"
+
+#: frontend/shortcode.php:91
+msgid "Punktum [.]"
+msgstr "Punktum [.]"
+
+#: frontend/shortcode.php:92
+msgid "Eget tegn..."
+msgstr "Eget tegn..."
+
+#: frontend/shortcode.php:99
+msgid "Ryd og start forfra"
+msgstr "Ryd og start forfra"
+
+#: frontend/shortcode.php:103
+msgid "Tip: Dobbeltklik på et element i det blå felt for at fjerne det igen."
+msgstr "Tip: Dobbeltklik på et element i det blå felt for at fjerne det igen."
+
+#: frontend/shortcode.php:106
+msgid "Eksempel på komponent navn i spillet:"
+msgstr "Eksempel på komponentnavn i spillet:"
+
+#: frontend/shortcode.php:114
+msgid "2. Vælg og Sorter Fartøjer"
+msgstr "2. Vælg og sorter fartøjer"
+
+#: frontend/shortcode.php:117
+msgid "Find de fartøjer (skibe, biler, motorcykler) du vil have med i din oversættelse. Træk dem fra venstre til højre kolonne."
+msgstr "Find de fartøjer (skibe, biler, motorcykler) du vil have med i din oversættelse. Træk dem fra venstre til højre kolonne."
+
+#: frontend/shortcode.php:120
+msgid "Tip: Du kan trække fartøjer tilbage til den tilgængelige liste for at fjerne dem, eller trykke på \"Ryd listen\" for at nulstille."
+msgstr "Tip: Du kan trække fartøjer tilbage til den tilgængelige liste for at fjerne dem, eller trykke på \"Ryd listen\" for at nulstille."
+
+#: frontend/shortcode.php:121
+msgid "Bonustip: Du kan gruppere fartøjer ved at klikke på ⇄ ikonet. Indrykkede fartøjer vil dele det samme nummer som det overstående fartøj. Du kan stadig ændre navnet ved at klikke på ✎."
+msgstr "Bonustip: Du kan gruppere fartøjer ved at klikke på ⇄-ikonet. Indrykkede fartøjer vil dele det samme nummer som det overstående fartøj. Du kan stadig ændre navnet ved at klikke på ✎."
+
+#: frontend/shortcode.php:127
+msgid "Tilgængelige Fartøjer"
+msgstr "Tilgængelige fartøjer"
+
+#: frontend/shortcode.php:140
+msgid "Valgte Fartøjer (Sorteret rækkefølge)"
+msgstr "Valgte fartøjer (sorteret rækkefølge)"
+
+#: frontend/shortcode.php:142
+msgid "Ryd listen"
+msgstr "Ryd listen"
+
+#: frontend/shortcode.php:150
+msgid "3. Download din tilpassede file"
+msgstr "3. Download din tilpassede fil"
+
+#: frontend/shortcode.php:153
+msgctxt "Frontend download button"
+msgid "Download"
+msgstr "Download"
+
+#: frontend/shortcode.php:154
+msgid "version ikke angivet"
+msgstr "version ikke angivet"
+
+#: frontend/shortcode.php:158
+msgid "4. Installation af filen"
+msgstr "4. Installation af filen"
+
+#: frontend/shortcode.php:161
+msgid "Når du har downloadet din <code>global.ini</code> fil, skal du følge disse trin for at aktivere den i Star Citizen:"
+msgstr "Når du har downloadet din <code>global.ini</code>-fil, skal du følge disse trin for at aktivere den i Star Citizen:"
+
+#: frontend/shortcode.php:163
+msgid "Gå til din Star Citizen installationsmappe<br/><small>(typisk <code>Program Files\\Roberts Space Industries\\StarCitizen\\LIVE</code>).</small>"
+msgstr "Gå til din Star Citizen-installationsmappe<br/><small>(typisk <code>Program Files\\Roberts Space Industries\\StarCitizen\\LIVE</code>).</small>"
+
+#: frontend/shortcode.php:164
+msgid "Opret følgende mappestruktur hvis den ikke findes: <b><code>data\\Localization\\english</code></b>."
+msgstr "Opret følgende mappestruktur, hvis den ikke findes: <b><code>data\\Localization\\english</code></b>."
+
+#: frontend/shortcode.php:165
+msgid "Placer din downloadede <code>global.ini</code> fil i denne mappe."
+msgstr "Placer din downloadede <code>global.ini</code>-fil i denne mappe."
+
+#: frontend/shortcode.php:169
+msgid "Konfiguration"
+msgstr "Konfiguration"
+
+#: frontend/shortcode.php:170
+msgid "For at spillet skal bruge filen, skal du sikre dig at <code>user.cfg</code> filen i <code>LIVE</code> mappen indeholder følgende linje:"
+msgstr "For at spillet skal bruge filen, skal du sikre dig, at <code>user.cfg</code>-filen i <code>LIVE</code>-mappen indeholder følgende linje:"
+
+#: frontend/shortcode.php:172
+msgid "Hvis <code>user.cfg</code> ikke findes, skal du blot oprette en ny tekstfil med dette navn i <code>LIVE</code> mappen."
+msgstr "Hvis <code>user.cfg</code> ikke findes, skal du blot oprette en ny tekstfil med dette navn i <code>LIVE</code>-mappen."
+
+#: frontend/shortcode.php:175
+msgid "Gem din opsætning!"
+msgstr "Gem din opsætning!"
+
+#: frontend/shortcode.php:177
+msgid "Husk at gemme din opsætning til den næste patch, så slipper du for at lave dit format og sortere alle dine virtuelle rumskibe igen. Din gruppering og dine rettede navne bliver selvfølgelig også gemt."
+msgstr "Husk at gemme din opsætning til den næste patch, så slipper du for at lave dit format og sortere alle dine virtuelle rumskibe igen. Din gruppering og dine rettede navne bliver selvfølgelig også gemt."
+
+#: frontend/shortcode.php:179
+msgid "Gem din opsætning<br/>til den næste patch"
+msgstr "Gem din opsætning<br/>til den næste patch"
+
+#: frontend/shortcode.php:183
+#, php-format
+msgid "Made by %s, tested by %s and %s."
+msgstr "Lavet af %s, testet af %s og %s."
+
+#: frontend/shortcode.php:184
+#, php-format
+msgid "Credit to %s for inspiration and the hard work to classify all components in 4.6.0."
+msgstr "Tak til %s for inspiration og det hårde arbejde med at klassificere alle komponenter i 4.6.0."
+
+#: includes/file-handler.php:88
+msgid "Sikkerhedsfejl"
+msgstr "Sikkerhedsfejl"
+
+#: includes/file-handler.php:104
+msgid "global.ini mangler"
+msgstr "global.ini mangler"

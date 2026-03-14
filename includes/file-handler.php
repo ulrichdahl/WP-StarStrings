@@ -85,7 +85,7 @@ add_action( 'wp_ajax_nopriv_sc_loc_download', 'sc_loc_handle_download' );
 
 function sc_loc_handle_download() {
 	if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'sc_loc_download_nonce' ) ) {
-		wp_die( 'Sikkerhedsfejl' );
+		wp_die( esc_html__( 'Sikkerhedsfejl', 'sc-localization' ) );
 	}
 
 	$format_json   = isset( $_POST['format'] ) ? stripslashes( $_POST['format'] ) : '[]';
@@ -101,7 +101,7 @@ function sc_loc_handle_download() {
 	$version_message = trim( (string) get_option( 'sc_loc_version_message', '' ) );
 
 	if ( ! file_exists( $global_path ) ) {
-		wp_die( 'global.ini mangler' );
+		wp_die( esc_html__( 'global.ini mangler', 'sc-localization' ) );
 	}
 
 	$global_content  = file( $global_path, FILE_IGNORE_NEW_LINES );

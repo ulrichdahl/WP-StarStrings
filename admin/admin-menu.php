@@ -28,7 +28,7 @@ function sc_loc_admin_page() {
 		}
 
 		sc_loc_handle_uploads();
-		echo '<div class="updated"><p>Filer uploadet korrekt.</p></div>';
+        echo '<div class="updated"><p>' . esc_html__( 'Filer uploadet korrekt.', 'sc-localization' ) . '</p></div>';
 	}
 
 	$global_ini_version = get_option( 'sc_loc_global_ini_version', '' );
@@ -44,12 +44,14 @@ function sc_loc_admin_page() {
 	echo '<pre>' . implode( '<br/>', $out ) . '</pre>';
 	?>
 	<div class="wrap">
-		<h1>Star Citizen Localization Indstillinger</h1>
+        <h1><?php esc_html_e( 'Star Citizen Localization Indstillinger', 'sc-localization' ); ?></h1>
 		<form method="post" enctype="multipart/form-data">
 			<?php wp_nonce_field( 'sc_loc_upload_action', 'sc_loc_upload_nonce' ); ?>
 			<table class="form-table">
 				<tr>
-					<th scope="row"><label for="sc_loc_global_ini_version">Seneste global.ini version</label></th>
+                    <th scope="row"><label
+                                for="sc_loc_global_ini_version"><?php esc_html_e( 'Seneste global.ini version', 'sc-localization' ); ?></label>
+                    </th>
 					<td>
 						<input
 							type="text"
@@ -57,13 +59,15 @@ function sc_loc_admin_page() {
 							id="sc_loc_global_ini_version"
 							class="regular-text"
 							value="<?php echo esc_attr( $global_ini_version ); ?>"
-							placeholder="f.eks. 4.7.0-11445650"
+                            placeholder="<?php esc_attr_e( 'f.eks. 4.7.0-11445650', 'sc-localization' ); ?>"
 						>
-						<p class="description">Denne version vises i frontend ved download-knappen.</p>
+                        <p class="description"><?php esc_html_e( 'Denne version vises i frontend ved download-knappen.', 'sc-localization' ); ?></p>
 					</td>
 				</tr>
 				<tr>
-					<th scope="row"><label for="sc_loc_version_message">Version besked i hovedmenuen</label></th>
+                    <th scope="row"><label
+                                for="sc_loc_version_message"><?php esc_html_e( 'Version besked i hovedmenuen', 'sc-localization' ); ?></label>
+                    </th>
 					<td>
 						<input
 							type="text"
@@ -71,37 +75,44 @@ function sc_loc_admin_page() {
 							id="sc_loc_version_message"
 							class="regular-text"
 							value="<?php echo esc_attr( $version_message ); ?>"
-							placeholder="f.eks. Alliance Aid"
+                            placeholder="<?php esc_attr_e( 'f.eks. Alliance Aid', 'sc-localization' ); ?>"
 						>
-						<p class="description">Denne vil blive vist øverst i spillets hovedmenu, over knappen "Persistent Universe".</p>
+                        <p class="description"><?php esc_html_e( 'Denne vil blive vist øverst i spillets hovedmenu, over knappen "Persistent Universe".', 'sc-localization' ); ?></p>
 					</td>
 				</tr>
 				<tr>
-					<th scope="row"><label for="global_ini">Global.ini (Hovedfil) i flere filer (max størrelse <?php echo ini_get( 'upload_max_filesize' ); ?>Bytes)</label></th>
+                    <th scope="row"><label
+                                for="global_ini"><?php printf( esc_html__( 'Global.ini (Hovedfil) i flere filer (max størrelse %sBytes)', 'sc-localization' ), ini_get( 'upload_max_filesize' ) ); ?></label>
+                    </th>
 					<td>
 						<input type="file" name="global_ini" id="global_ini" accept=".zip">
 						<input type="file" name="global_ini_1" id="global_ini_1" accept=".z01">
 					</td>
 				</tr>
 				<tr>
-					<th scope="row"><label for="components_ini">Components.ini</label></th>
+                    <th scope="row"><label
+                                for="components_ini"><?php esc_html_e( 'Components.ini', 'sc-localization' ); ?></label>
+                    </th>
 					<td><input type="file" name="components_ini" id="components_ini" accept=".ini"></td>
 				</tr>
 				<tr>
-					<th scope="row"><label for="vehicles_ini">Vehicles.ini</label></th>
+                    <th scope="row"><label
+                                for="vehicles_ini"><?php esc_html_e( 'Vehicles.ini', 'sc-localization' ); ?></label>
+                    </th>
 					<td><input type="file" name="vehicles_ini" id="vehicles_ini" accept=".ini"></td>
 				</tr>
 			</table>
-			<?php submit_button( 'Gem og upload filer' ); ?>
+            <?php submit_button( __( 'Gem og upload filer', 'sc-localization' ) ); ?>
 		</form>
 
 		<hr>
-		<h2>Nuværende Status</h2>
+        <h2><?php esc_html_e( 'Nuværende Status', 'sc-localization' ); ?></h2>
 		<ul>
-			<li>Downloads: <?php echo $counter; ?></li>
-			<li>Seneste global.ini version: <?php echo $global_ini_version ? esc_html( $global_ini_version ) : '<span style="color:red;">Ikke angivet</span>'; ?></li>
+            <li><?php printf( esc_html__( 'Downloads: %d', 'sc-localization' ), $counter ); ?></li>
+            <li><?php printf( esc_html__( 'Seneste global.ini version: %s', 'sc-localization' ), $global_ini_version ? esc_html( $global_ini_version ) : '<span style="color:red;">' . esc_html__( 'Ikke angivet', 'sc-localization' ) . '</span>' ); ?></li>
 			<?php foreach ( array( 'global.ini', 'components.ini', 'vehicles.ini' ) as $file ) { ?>
-				<li><?php echo $file; ?>: <?php echo file_exists( SC_LOC_UPLOAD_DIR . '/' . $file ) ? '<span style="color:green;">Uploadet</span> <a href="' . wp_upload_dir()['baseurl'] . '/sc-localization/' . $file . '" target="_blank">Download</a>' : '<span style="color:red;">Mangler</span>'; ?></li>
+                <li><?php echo $file; ?>
+                    : <?php echo file_exists( SC_LOC_UPLOAD_DIR . '/' . $file ) ? '<span style="color:green;">' . esc_html__( 'Uploadet', 'sc-localization' ) . '</span> <a href="' . wp_upload_dir()['baseurl'] . '/sc-localization/' . $file . '" target="_blank">' . esc_html__( 'Download', 'sc-localization' ) . '</a>' : '<span style="color:red;">' . esc_html__( 'Mangler', 'sc-localization' ) . '</span>'; ?></li>
 			<?php } // endforeach ?>
 		</ul>
 	</div>
