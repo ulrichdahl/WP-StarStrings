@@ -27,6 +27,13 @@ function sc_loc_admin_page() {
 			);
 		}
 
+        if ( isset( $_POST['sc_loc_version_message'] ) ) {
+            update_option(
+                    'sc_loc_version_message',
+                    sanitize_text_field( wp_unslash( $_POST['sc_loc_version_message'] ) )
+            );
+        }
+
 		sc_loc_handle_uploads();
         echo '<div class="updated"><p>' . esc_html__( 'Filer uploadet korrekt.', 'sc-localization' ) . '</p></div>';
 	}
