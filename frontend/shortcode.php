@@ -208,7 +208,8 @@ function sc_loc_frontend_shortcode() {
         </div>
         <p>
             <small><?php printf( esc_html__( 'Made by %s, tested by %s and %s.', 'sc-localization' ), '<a href="https://robertsspaceindustries.com/citizens/DK-Raven" target="_blank">DK-Raven</a>', '<a href="https://robertsspaceindustries.com/citizens/Rimlee" target="_blank">Rimlee</a>', '<a href="https://robertsspaceindustries.com/citizens/PacManiacDK" target="_blank">PacManiacDK</a>' ); ?></small><br/>
-            <small><?php printf( esc_html__( 'Credit to %s for inspiration and the hard work to classify all components in 4.6.0.', 'sc-localization' ), '<a href="https://github.com/ExoAE/ScCompLangPack/">ExoAE</a>' ); ?></small>
+            <small><?php printf( esc_html__( 'Credit to %s for inspiration and the hard work to classify all components in 4.6.0 and inspiration to make this tool.', 'sc-localization' ), '<a href="https://github.com/ExoAE/ScCompLangPack/">ExoAE</a>' ); ?></small>
+            <small><?php printf( esc_html__( 'Credit to %s for the contracts and ordinance work.', 'sc-localization' ), '<a href="https://github.com/MrKraken/StarStrings/">MrKrakken</a>' ); ?></small>
         </p>
     </div>
     <?php

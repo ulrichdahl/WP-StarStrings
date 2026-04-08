@@ -69,6 +69,7 @@ function sc_loc_parse_component_type( $key ) {
 		'POWR' => array( 'long' => 'POWR', 'short' => 'P' ),
 		'QDRV' => array( 'long' => 'QDRV', 'short' => 'Q' ),
 		'SHLD' => array( 'long' => 'SHLD', 'short' => 'S' ),
+		'RADR' => array( 'long' => 'RADR', 'short' => 'R' ),
 	);
 
 	foreach ( $types as $k => $v ) {
@@ -97,6 +98,7 @@ function sc_loc_handle_download() {
 	$global_path        = SC_LOC_UPLOAD_DIR . '/global.ini';
 	$components_path    = SC_LOC_UPLOAD_DIR . '/components.ini';
 	$vehicles_path      = SC_LOC_UPLOAD_DIR . '/vehicles.ini';
+	$contracts_path = SC_LOC_UPLOAD_DIR . '/contracts.ini';
 	$global_ini_version = trim( (string) get_option( 'sc_loc_global_ini_version', '' ) );
 	$version_message = trim( (string) get_option( 'sc_loc_version_message', '' ) );
 
@@ -107,9 +109,50 @@ function sc_loc_handle_download() {
 	$global_content  = file( $global_path, FILE_IGNORE_NEW_LINES );
 	$components_data = sc_loc_parse_ini( $components_path );
 	$vehicles_data   = sc_loc_parse_ini( $vehicles_path );
+	$contracts_data = sc_loc_parse_ini( $contracts_path );
 
 	// Forbered komponent erstatninger
-	$replacements = array();
+	$replacements = array(
+		...$contracts_data,
+		'items_commodities_aphorite_raw'      => 'Aphorite Ore',
+		'items_commodities_aslarite_raw'      => 'Aslarite Ore',
+		'items_commodities_beradom_raw'       => 'Beradom Ore',
+		'items_commodities_beryl_raw'         => 'Beryl Ore',
+		'items_commodities_bexalite_raw'      => 'Bexalite Ore',
+		'items_commodities_carinite_raw'      => 'Carinite Ore',
+		'items_commodities_corundum_raw'      => 'Corundum Ore',
+		'items_commodities_diamond_raw'       => 'Diamond Ore',
+		'items_commodities_dolivine_raw'      => 'Dolivine Ore',
+		'items_commodities_feynmaline_raw'    => 'Feynmaline Ore',
+		'items_commodities_glacosite_raw'     => 'Glacosite Ore',
+		'items_commodities_hadanite_raw'      => 'Hadanite Ore',
+		'items_commodities_hephaestanite_raw' => 'Heph.tanite Ore',
+		'items_commodities_janalite_raw'      => 'Janalite Ore',
+		'items_commodities_laranite_raw'      => 'Laranite Ore',
+		'items_commodities_quantainium_raw'   => 'Quantainium Ore',
+		'items_commodities_quartz_raw'        => 'Quartz Ore',
+		'items_commodities_raw_ice,P'         => 'Ice Ore',
+		'items_commodities_raw_ouratite'      => 'Ouratite Ore',
+		'items_commodities_raw_silicon,P'     => 'Silicon Ore',
+		'items_commodities_sadaryx_raw'       => 'Sadaryx Ore',
+		'items_commodities_taranite_raw'      => 'Taranite Ore',
+		'items_commodities_agricium_ore'      => 'Agricium Ore',
+		'items_commodities_aluminum_ore'      => 'Aluminum Ore',
+		'items_commodities_borase_ore'        => 'Borase Ore',
+		'items_commodities_copper_ore'        => 'Copper Ore',
+		'items_commodities_gold_ore'          => 'Gold Ore',
+		'items_commodities_iron_ore,P'        => 'Iron Ore',
+		'items_commodities_jaclium_ore'       => 'Jaclium Ore',
+		'items_commodities_lindinium_ore'     => 'Lindinium Ore',
+		'items_commodities_riccite_ore'       => 'Riccite Ore',
+		'items_commodities_saldynium_ore'     => 'Saldynium Ore',
+		'items_commodities_savrilium_ore'     => 'Savrilium Ore',
+		'items_commodities_stileron_ore'      => 'Stileron Ore',
+		'items_commodities_tin_ore'           => 'Tin Ore',
+		'items_commodities_titanium_ore'      => 'Titanium Ore',
+		'items_commodities_torite_ore'        => 'Torite Ore',
+		'items_commodities_tungsten_ore'      => 'Tungsten Ore',
+	);
 	foreach ( $components_data as $key => $raw_value ) {
 		$comp_info = sc_loc_parse_component_value( $raw_value );
 		$type_info = sc_loc_parse_component_type( $key );
@@ -183,7 +226,7 @@ function sc_loc_handle_download() {
 
 	// Opdater global.ini indhold
 	if ( $global_ini_version !== '' ) {
-		$replacements['Frontend_PU_Version'] = $global_ini_version . ' ' . ( ! empty( $version_message ) ? $version_message . ' ' : '' ) . SC_LOC_MESSAGE;
+		$replacements['Frontend_PU_Version'] = $global_ini_version . ' ' . ( ! empty( $version_message ) ? $version_message . ' ' : '' ) . '\n' . SC_LOC_MESSAGE;
 	}
 
 	$output = "";

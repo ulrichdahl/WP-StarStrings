@@ -375,10 +375,15 @@ msgstr "Gem din opsætning<br/>til den næste patch"
 msgid "Made by %s, tested by %s and %s."
 msgstr "Lavet af %s, testet af %s og %s."
 
-#: frontend/shortcode.php:184
+#: frontend/shortcode.php:211
 #, php-format
-msgid "Credit to %s for inspiration and the hard work to classify all components in 4.6.0."
-msgstr "Tak til %s for inspiration og det hårde arbejde med at klassificere alle komponenter i 4.6.0."
+msgid "Credit to %s for inspiration and the hard work to classify all components in 4.6.0 and inspiration to make this tool."
+msgstr "Tak til %s for inspiration og det hårde arbejde med at klassificere alle komponenter i 4.6.0 og inspiration til at lave dette værktøj."
+
+#: frontend/shortcode.php:212
+#, php-format
+msgid "Credit to %s for the contracts and ordinance work."
+msgstr "Tak til %s for arbejdet med kontrakter og missiller."
 
 #: includes/file-handler.php:88
 msgid "Sikkerhedsfejl"
