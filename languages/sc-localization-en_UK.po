@@ -1,0 +1,293 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Star Citizen Localization 1.3.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-19 00:00+0000\n"
+"PO-Revision-Date: 2026-04-19 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0\n"
+"X-Domain: sc-localization\n"
+
+msgid "%s. Group"
+msgstr "%s. Group"
+
+msgid "1, 2, 3 etc."
+msgstr "1, 2, 3 etc."
+
+msgid "1. Define Component Format"
+msgstr "1. Define Component Format"
+
+msgid "2. Select and Sort Vehicles"
+msgstr "2. Select and Sort Vehicles"
+
+msgid "3. Download your customized file"
+msgstr "3. Download your customized file"
+
+msgid "4. File Installation"
+msgstr "4. File Installation"
+
+msgid "A, B, C, D."
+msgstr "A, B, C, D."
+
+msgid "Add separator:"
+msgstr "Add separator:"
+
+msgid "Are you sure you want to reset the sorting? All selected vehicles will be moved back."
+msgstr "Are you sure you want to reset the sorting? All selected vehicles will be moved back."
+
+msgid "Available Vehicles"
+msgstr "Available Vehicles"
+
+msgid "Bonus Tip: You can group vehicles by clicking on the ⇄ icon. Indented vehicles will share the same number as the vehicle above. You can still change the name by clicking on ✎."
+msgstr "Bonus Tip: You can group vehicles by clicking on the ⇄ icon. Indented vehicles will share the same number as the vehicle above. You can still change the name by clicking on ✎."
+
+msgid "Build your format by dragging the elements (chips) below into the blue area.<br/>You can also click the buttons to add spaces or hyphens."
+msgstr "Build your format by dragging the elements (chips) below into the blue area.<br/>You can also click the buttons to add spaces or hyphens."
+
+msgid "CIV or C (Civilian)<br/>CMP or R (Competition/Racing)<br/>IND or I (Industrial)<br/>MIL or M (Military)<br/>STL or S (Stealth)"
+msgstr "CIV or C (Civilian)<br/>CMP or R (Competition/Racing)<br/>IND or I (Industrial)<br/>MIL or M (Military)<br/>STL or S (Stealth)"
+
+msgid "COOL or C for Cooler<br/>POWR or P for Powerplant<br/>SHLD or S for Shield<br/>QDRV or Q for Quantumdrive<br/>RADR or R for Radar"
+msgstr "COOL or C for Cooler<br/>POWR or P for Powerplant<br/>SHLD or S for Shield<br/>QDRV or Q for Quantumdrive<br/>RADR or R for Radar"
+
+msgid "Classification (1 character)"
+msgstr "Classification (1 character)"
+
+msgid "Classification (3 characters)"
+msgstr "Classification (3 characters)"
+
+msgid "Classification:"
+msgstr "Classification:"
+
+msgid "Clear and start over"
+msgstr "Clear and start over"
+
+msgid "Clear list"
+msgstr "Clear list"
+
+msgid "Components.ini"
+msgstr "Components.ini"
+
+msgid "Configuration"
+msgstr "Configuration"
+
+msgid "Configuration loaded!"
+msgstr "Configuration loaded!"
+
+msgid "Create the following folder structure if it does not exist: <b><code class="
+msgstr "Create the following folder structure if it does not exist: <b><code class="
+
+msgid "Credit to %s for inspiration and the hard work to classify all components in 4.6.0 and inspiration to make this tool."
+msgstr "Credit to %s for inspiration and the hard work to classify all components in 4.6.0 and inspiration to make this tool."
+
+msgid "Credit to %s for the contracts and ordinance work."
+msgstr "Credit to %s for the contracts and ordinance work."
+
+msgid "Current Status"
+msgstr "Current Status"
+
+msgid "Custom character..."
+msgstr "Custom character..."
+
+msgid "Dot [.]"
+msgstr "Dot [.]"
+
+msgid "Download"
+msgstr "Download"
+
+msgid "Downloads: %d"
+msgstr "Downloads: %d"
+
+msgid "E.g. A, B"
+msgstr "E.g. A, B"
+
+msgid "E.g. C, P"
+msgstr "E.g. C, P"
+
+msgid "E.g. COOL, POWR"
+msgstr "E.g. COOL, POWR"
+
+msgid "E.g. M, S"
+msgstr "E.g. M, S"
+
+msgid "E.g. MIL, STL"
+msgstr "E.g. MIL, STL"
+
+msgid "E.g. S1, S2"
+msgstr "E.g. S1, S2"
+
+msgid "Edit name"
+msgstr "Edit name"
+
+msgid "Enter separator:"
+msgstr "Enter separator:"
+
+msgid "Error: File is not a valid JSON file."
+msgstr "Error: File is not a valid JSON file."
+
+msgid "Example of component name in the game:"
+msgstr "Example of component name in the game:"
+
+msgid "Files uploaded correctly."
+msgstr "Files uploaded correctly."
+
+msgid "Find the vehicles (ships, cars, motorcycles) you want to include in your translation. Drag them from the left to the right column."
+msgstr "Find the vehicles (ships, cars, motorcycles) you want to include in your translation. Drag them from the left to the right column."
+
+msgid "Global.ini (Main file) in multiple files (max size %sBytes)"
+msgstr "Global.ini (Main file) in multiple files (max size %sBytes)"
+
+msgid "Go to your Star Citizen installation folder<br/><small>(typically <code class="
+msgstr "Go to your Star Citizen installation folder<br/><small>(typically <code class="
+
+msgid "Grade"
+msgstr "Grade"
+
+msgid "Grade:"
+msgstr "Grade:"
+
+msgid "Hyphen [-]"
+msgstr "Hyphen [-]"
+
+msgid "If <code>user.cfg</code> does not exist, simply create a new text file with this name in the <code>LIVE</code> folder."
+msgstr "If <code>user.cfg</code> does not exist, simply create a new text file with this name in the <code>LIVE</code> folder."
+
+msgid "Indent"
+msgstr "Indent"
+
+msgid "Latest global.ini version"
+msgstr "Latest global.ini version"
+
+msgid "Latest global.ini version: %s"
+msgstr "Latest global.ini version: %s"
+
+msgid "Load your setup from the last patch"
+msgstr "Load your setup from the last patch"
+
+msgid "Made by %s, tested by %s and %s."
+msgstr "Made by %s, tested by %s and %s."
+
+msgid "Missing"
+msgstr "Missing"
+
+msgid "Name"
+msgstr "Name"
+
+msgid "Name:"
+msgstr "Name:"
+
+msgid "Not specified"
+msgstr "Not specified"
+
+msgid "Once you have downloaded your <code>global.ini</code> file, follow these steps to activate it in Star Citizen:"
+msgstr "Once you have downloaded your <code>global.ini</code> file, follow these steps to activate it in Star Citizen:"
+
+msgid "Outdent"
+msgstr "Outdent"
+
+msgid "Place your downloaded <code>global.ini</code> file in this folder."
+msgstr "Place your downloaded <code>global.ini</code> file in this folder."
+
+msgid "Please select a format for components."
+msgstr "Please select a format for components."
+
+msgid "Remember to save your setup for the next patch, so you don't have to setup component format and sort all your virtual ships again. Your grouping and corrected names will, of course, also be saved."
+msgstr "Remember to save your setup for the next patch, so you don't have to setup component format and sort all your virtual ships again. Your grouping and corrected names will, of course, also be saved."
+
+msgid "Save and upload files"
+msgstr "Save and upload files"
+
+msgid "Save your settings"
+msgstr "Save your settings"
+
+msgid "Save your settings!"
+msgstr "Save your settings!"
+
+msgid "Search for vehicle..."
+msgstr "Search for vehicle..."
+
+msgid "Security error"
+msgstr "Security error"
+
+msgid "Selected Vehicles (Sorted)"
+msgstr "Selected Vehicles (Sorted)"
+
+msgid "Size"
+msgstr "Size"
+
+msgid "Size:"
+msgstr "Size:"
+
+msgid "Space"
+msgstr "Space"
+
+msgid "Space [ ]"
+msgstr "Space [ ]"
+
+msgid "Star Citizen Localization Settings"
+msgstr "Star Citizen Localization Settings"
+
+msgid "The actual name of the component."
+msgstr "The actual name of the component."
+
+msgid "The necessary files have not been uploaded for Star Citizen localization yet."
+msgstr "The necessary files have not been uploaded for Star Citizen localization yet."
+
+msgid "This version is displayed in the frontend via the download button."
+msgstr "This version is displayed in the frontend via the download button."
+
+msgid "This will be displayed at the top of the game's main menu, above the \"Persistent Universe\" button."
+msgstr "This will be displayed at the top of the game's main menu, above the \"Persistent Universe\" button."
+
+msgid "Tip: Double-click an element in the blue area to remove it again."
+msgstr "Tip: Double-click an element in the blue area to remove it again."
+
+msgid "Tip: You can drag vehicles back to the available list to remove them, or press "
+msgstr "Tip: You can drag vehicles back to the available list to remove them, or press "
+
+msgid "To ensure the game uses the file, make sure that the <code>user.cfg</code> file in the <code>LIVE</code> folder contains the following line:"
+msgstr "To ensure the game uses the file, make sure that the <code>user.cfg</code> file in the <code>LIVE</code> folder contains the following line:"
+
+msgid "Type (1 character)"
+msgstr "Type (1 character)"
+
+msgid "Type (4 characters)"
+msgstr "Type (4 characters)"
+
+msgid "Type:"
+msgstr "Type:"
+
+msgid "Underscore [_]"
+msgstr "Underscore [_]"
+
+msgid "Uploaded"
+msgstr "Uploaded"
+
+msgid "Vehicles.ini"
+msgstr "Vehicles.ini"
+
+msgid "Version message in the main menu"
+msgstr "Version message in the main menu"
+
+msgid "contracts.ini"
+msgstr "contracts.ini"
+
+msgid "e.g. 4.7.0-11445650"
+msgstr "e.g. 4.7.0-11445650"
+
+msgid "e.g. Alliance Aid"
+msgstr "e.g. Alliance Aid"
+
+msgid "extras.ini"
+msgstr "extras.ini"
+
+msgid "global.ini is missing"
+msgstr "global.ini is missing"
+
+msgid "version not specified"
+msgstr "version not specified"

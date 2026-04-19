@@ -1,0 +1,293 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Star Citizen Localization 1.3.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-19 00:00+0000\n"
+"PO-Revision-Date: 2026-04-19 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: da\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0\n"
+"X-Domain: sc-localization\n"
+
+msgid "%s. Group"
+msgstr "%s. Gruppe"
+
+msgid "1, 2, 3 etc."
+msgstr "1, 2, 3 etc."
+
+msgid "1. Define Component Format"
+msgstr "1. Definér komponentformat"
+
+msgid "2. Select and Sort Vehicles"
+msgstr "2. Vælg og sorter køretøjer"
+
+msgid "3. Download your customized file"
+msgstr "3. Download din tilpassede fil"
+
+msgid "4. File Installation"
+msgstr "4. Filinstallation"
+
+msgid "A, B, C, D."
+msgstr "A, B, C, D."
+
+msgid "Add separator:"
+msgstr "Tilføj separator:"
+
+msgid "Are you sure you want to reset the sorting? All selected vehicles will be moved back."
+msgstr "Er du sikker på, at du vil nulstille sorteringen? Alle valgte køretøjer flyttes tilbage."
+
+msgid "Available Vehicles"
+msgstr "Tilgængelige køretøjer"
+
+msgid "Bonus Tip: You can group vehicles by clicking on the ⇄ icon. Indented vehicles will share the same number as the vehicle above. You can still change the name by clicking on ✎."
+msgstr "Bonustip: Du kan gruppere køretøjer ved at klikke på ⇄-ikonet. Indrykkede køretøjer får samme nummer som køretøjet ovenover. Du kan stadig ændre navnet ved at klikke på ✎."
+
+msgid "Build your format by dragging the elements (chips) below into the blue area.<br/>You can also click the buttons to add spaces or hyphens."
+msgstr "Byg dit format ved at trække elementerne (chips) nedenfor ind i det blå område.<br/>Du kan også klikke på knapperne for at tilføje mellemrum eller bindestreger."
+
+msgid "CIV or C (Civilian)<br/>CMP or R (Competition/Racing)<br/>IND or I (Industrial)<br/>MIL or M (Military)<br/>STL or S (Stealth)"
+msgstr "CIV eller C (civil)<br/>CMP eller R (konkurrence/racing)<br/>IND eller I (industriel)<br/>MIL eller M (militær)<br/>STL eller S (stealth)"
+
+msgid "COOL or C for Cooler<br/>POWR or P for Powerplant<br/>SHLD or S for Shield<br/>QDRV or Q for Quantumdrive<br/>RADR or R for Radar"
+msgstr "COOL eller C for køler<br/>POWR eller P for kraftværk<br/>SHLD eller S for skjold<br/>QDRV eller Q for quantumdrive<br/>RADR eller R for radar"
+
+msgid "Classification (1 character)"
+msgstr "Klassifikation (1 tegn)"
+
+msgid "Classification (3 characters)"
+msgstr "Klassifikation (3 tegn)"
+
+msgid "Classification:"
+msgstr "Klassifikation:"
+
+msgid "Clear and start over"
+msgstr "Ryd og start forfra"
+
+msgid "Clear list"
+msgstr "Ryd liste"
+
+msgid "Components.ini"
+msgstr "Components.ini"
+
+msgid "Configuration"
+msgstr "Konfiguration"
+
+msgid "Configuration loaded!"
+msgstr "Konfiguration indlæst!"
+
+msgid "Create the following folder structure if it does not exist: <b><code class="
+msgstr "Opret følgende mappestruktur, hvis den ikke findes: <b><code class="
+
+msgid "Credit to %s for inspiration and the hard work to classify all components in 4.6.0 and inspiration to make this tool."
+msgstr "Tak til %s for inspirationen og det store arbejde med at klassificere alle komponenter i 4.6.0 samt inspirationen til at lave dette værktøj."
+
+msgid "Credit to %s for the contracts and ordinance work."
+msgstr "Tak til %s for arbejdet med contracts og ordinance."
+
+msgid "Current Status"
+msgstr "Nuværende status"
+
+msgid "Custom character..."
+msgstr "Tilpasset tegn..."
+
+msgid "Dot [.]"
+msgstr "Punktum [.]"
+
+msgid "Download"
+msgstr "Download"
+
+msgid "Downloads: %d"
+msgstr "Downloads: %d"
+
+msgid "E.g. A, B"
+msgstr "F.eks. A, B"
+
+msgid "E.g. C, P"
+msgstr "F.eks. C, P"
+
+msgid "E.g. COOL, POWR"
+msgstr "F.eks. COOL, POWR"
+
+msgid "E.g. M, S"
+msgstr "F.eks. M, S"
+
+msgid "E.g. MIL, STL"
+msgstr "F.eks. MIL, STL"
+
+msgid "E.g. S1, S2"
+msgstr "F.eks. S1, S2"
+
+msgid "Edit name"
+msgstr "Rediger navn"
+
+msgid "Enter separator:"
+msgstr "Indtast separator:"
+
+msgid "Error: File is not a valid JSON file."
+msgstr "Fejl: Filen er ikke en gyldig JSON-fil."
+
+msgid "Example of component name in the game:"
+msgstr "Eksempel på komponentnavn i spillet:"
+
+msgid "Files uploaded correctly."
+msgstr "Filer er uploadet korrekt."
+
+msgid "Find the vehicles (ships, cars, motorcycles) you want to include in your translation. Drag them from the left to the right column."
+msgstr "Find de køretøjer (skibe, biler, motorcykler), du vil inkludere i din oversættelse. Træk dem fra venstre til højre kolonne."
+
+msgid "Global.ini (Main file) in multiple files (max size %sBytes)"
+msgstr "Global.ini (hovedfil) i flere filer (maks. størrelse %s bytes)"
+
+msgid "Go to your Star Citizen installation folder<br/><small>(typically <code class="
+msgstr "Gå til din Star Citizen installationsmappe<br/><small>(typisk <code class="
+
+msgid "Grade"
+msgstr "Grad"
+
+msgid "Grade:"
+msgstr "Grad:"
+
+msgid "Hyphen [-]"
+msgstr "Bindestreg [-]"
+
+msgid "If <code>user.cfg</code> does not exist, simply create a new text file with this name in the <code>LIVE</code> folder."
+msgstr "Hvis <code>user.cfg</code> ikke findes, skal du blot oprette en ny tekstfil med dette navn i <code>LIVE</code>-mappen."
+
+msgid "Indent"
+msgstr "Indryk"
+
+msgid "Latest global.ini version"
+msgstr "Nyeste global.ini-version"
+
+msgid "Latest global.ini version: %s"
+msgstr "Nyeste global.ini-version: %s"
+
+msgid "Load your setup from the last patch"
+msgstr "Indlæs din opsætning fra den seneste patch"
+
+msgid "Made by %s, tested by %s and %s."
+msgstr "Lavet af %s, testet af %s og %s."
+
+msgid "Missing"
+msgstr "Mangler"
+
+msgid "Name"
+msgstr "Navn"
+
+msgid "Name:"
+msgstr "Navn:"
+
+msgid "Not specified"
+msgstr "Ikke angivet"
+
+msgid "Once you have downloaded your <code>global.ini</code> file, follow these steps to activate it in Star Citizen:"
+msgstr "Når du har downloadet din <code>global.ini</code>-fil, skal du følge disse trin for at aktivere den i Star Citizen:"
+
+msgid "Outdent"
+msgstr "Udryk"
+
+msgid "Place your downloaded <code>global.ini</code> file in this folder."
+msgstr "Placer din downloadede <code>global.ini</code>-fil i denne mappe."
+
+msgid "Please select a format for components."
+msgstr "Vælg venligst et format til komponenter."
+
+msgid "Remember to save your setup for the next patch, so you don't have to setup component format and sort all your virtual ships again. Your grouping and corrected names will, of course, also be saved."
+msgstr "Husk at gemme din opsætning til næste patch, så du ikke behøver at sætte komponentformat op og sortere alle dine virtuelle skibe igen. Din gruppering og rettede navne vil selvfølgelig også blive gemt."
+
+msgid "Save and upload files"
+msgstr "Gem og upload filer"
+
+msgid "Save your settings"
+msgstr "Gem dine indstillinger"
+
+msgid "Save your settings!"
+msgstr "Gem dine indstillinger!"
+
+msgid "Search for vehicle..."
+msgstr "Søg efter køretøj..."
+
+msgid "Security error"
+msgstr "Sikkerhedsfejl"
+
+msgid "Selected Vehicles (Sorted)"
+msgstr "Valgte køretøjem (sorteret)"
+
+msgid "Size"
+msgstr "Størrelse"
+
+msgid "Size:"
+msgstr "Størrelse:"
+
+msgid "Space"
+msgstr "Mellemrum"
+
+msgid "Space [ ]"
+msgstr "Mellemrum [ ]"
+
+msgid "Star Citizen Localization Settings"
+msgstr "Indstillinger for Star Citizen-oversættelse"
+
+msgid "The actual name of the component."
+msgstr "Det faktiske navn på komponenten."
+
+msgid "The necessary files have not been uploaded for Star Citizen localization yet."
+msgstr "De nødvendige filer er endnu ikke blevet uploadet til Star Citizen-oversættelsen."
+
+msgid "This version is displayed in the frontend via the download button."
+msgstr "Denne version vises i frontenden via download-knappen."
+
+msgid "This will be displayed at the top of the game's main menu, above the \"Persistent Universe\" button."
+msgstr "Dette vil blive vist øverst i spillets hovedmenu, over knappen \"Persistent Universe\"."
+
+msgid "Tip: Double-click an element in the blue area to remove it again."
+msgstr "Tip: Dobbeltklik på et element i det blå område for at fjerne det igen."
+
+msgid "Tip: You can drag vehicles back to the available list to remove them, or press "
+msgstr "Tip: Du kan trække køretøjer tilbage til listen over tilgængelige for at fjerne dem, eller tryk på "
+
+msgid "To ensure the game uses the file, make sure that the <code>user.cfg</code> file in the <code>LIVE</code> folder contains the following line:"
+msgstr "For at sikre, at spillet bruger filen, skal du sørge for, at <code>user.cfg</code>-filen i <code>LIVE</code>-mappen indeholder følgende linje:"
+
+msgid "Type (1 character)"
+msgstr "Type (1 tegn)"
+
+msgid "Type (4 characters)"
+msgstr "Type (4 tegn)"
+
+msgid "Type:"
+msgstr "Type:"
+
+msgid "Underscore [_]"
+msgstr "Understregning [_]"
+
+msgid "Uploaded"
+msgstr "Uploadet"
+
+msgid "Vehicles.ini"
+msgstr "Vehicles.ini"
+
+msgid "Version message in the main menu"
+msgstr "Versionsbesked i hovedmenuen"
+
+msgid "contracts.ini"
+msgstr "contracts.ini"
+
+msgid "e.g. 4.7.0-11445650"
+msgstr "f.eks. 4.7.0-11445650"
+
+msgid "e.g. Alliance Aid"
+msgstr "f.eks. Alliance Aid"
+
+msgid "extras.ini"
+msgstr "extras.ini"
+
+msgid "global.ini is missing"
+msgstr "global.ini mangler"
+
+msgid "version not specified"
+msgstr "version ikke angivet"
