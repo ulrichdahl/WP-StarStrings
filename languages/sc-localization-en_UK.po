@@ -6,7 +6,7 @@ msgstr ""
 "PO-Revision-Date: 2026-04-19 00:00+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: de\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -14,40 +14,40 @@ msgstr ""
 "X-Domain: sc-localization\n"
 
 msgid "%s. Group"
-msgstr "%s. Gruppe"
+msgstr "%s. Group"
 
 msgid "1, 2, 3 etc."
 msgstr "1, 2, 3 etc."
 
 msgid "1. Define Component Format"
-msgstr "1. Komponente format definieren"
+msgstr "1. Define Component Format"
 
 msgid "2. Select and Sort Vehicles"
-msgstr "2. Fahrzeuge auswählen und sortieren"
+msgstr "2. Select and Sort Vehicles"
 
 msgid "3. Download your customized file"
-msgstr "3. Deine angepasste Datei herunterladen"
+msgstr "3. Download your customized file"
 
 msgid "4. File Installation"
-msgstr "4. Dateiinstallation"
+msgstr "4. File Installation"
 
 msgid "A, B, C, D."
 msgstr "A, B, C, D."
 
 msgid "Add separator:"
-msgstr "Trennzeichen hinzufügen:"
+msgstr "Add separator:"
 
 msgid "Are you sure you want to reset the sorting? All selected vehicles will be moved back."
-msgstr "Möchten Sie die Sortierung wirklich zurücksetzen? Alle ausgewählten Fahrzeuge werden zurückverschoben."
+msgstr "Are you sure you want to reset the sorting? All selected vehicles will be moved back."
 
 msgid "Available Vehicles"
-msgstr "Verfügbare Fahrzeuge"
+msgstr "Available Vehicles"
 
 msgid "Bonus Tip: You can group vehicles by clicking on the ⇄ icon. Indented vehicles will share the same number as the vehicle above. You can still change the name by clicking on ✎."
-msgstr "Bonus-Tipp: Sie können Fahrzeuge gruppieren, indem Sie auf das ⇄-Symbol klicken. Eingrückte Fahrzeuge teilen sich dieselbe Nummer wie das Fahrzeug darüber. Den Namen können Sie weiterhin durch Klicken auf ✎ ändern."
+msgstr "Bonus Tip: You can group vehicles by clicking on the ⇄ icon. Indented vehicles will share the same number as the vehicle above. You can still change the name by clicking on ✎."
 
 msgid "Build your format by dragging the elements (chips) below into the blue area.<br/>You can also click the buttons to add spaces or hyphens."
-msgstr "Erstellen Sie Ihr Format, indem Sie die untenstehenden Elemente (Chips) in den blauen Bereich ziehen.<br/>Sie können auch auf die Schaltflächen klicken, um Leerzeichen oder Bindestriche hinzuzufügen."
+msgstr "Build your format by dragging the elements (chips) below into the blue area.<br/>You can also click the buttons to add spaces or hyphens."
 
 msgid "CIV or C (Civilian)<br/>CMP or R (Competition/Racing)<br/>IND or I (Industrial)<br/>MIL or M (Military)<br/>STL or S (Stealth)"
 msgstr "CIV or C (Civilian)<br/>CMP or R (Competition/Racing)<br/>IND or I (Industrial)<br/>MIL or M (Military)<br/>STL or S (Stealth)"
@@ -56,19 +56,19 @@ msgid "COOL or C for Cooler<br/>POWR or P for Powerplant<br/>SHLD or S for Shiel
 msgstr "COOL or C for Cooler<br/>POWR or P for Powerplant<br/>SHLD or S for Shield<br/>QDRV or Q for Quantumdrive<br/>RADR or R for Radar"
 
 msgid "Classification (1 character)"
-msgstr "Klassifikation (1 Zeichen)"
+msgstr "Classification (1 character)"
 
 msgid "Classification (3 characters)"
-msgstr "Klassifikation (3 Zeichen)"
+msgstr "Classification (3 characters)"
 
 msgid "Classification:"
-msgstr "Klassifikation:"
+msgstr "Classification:"
 
 msgid "Clear and start over"
-msgstr "Löschen und neu beginnen"
+msgstr "Clear and start over"
 
 msgid "Clear list"
-msgstr "Liste leeren"
+msgstr "Clear list"
 
 msgid "Components.ini"
 msgstr "Components.ini"
@@ -77,10 +77,10 @@ msgid "Configuration"
 msgstr "Configuration"
 
 msgid "Configuration loaded!"
-msgstr "Konfiguration geladen!"
+msgstr "Configuration loaded!"
 
 msgid "Create the following folder structure if it does not exist: <b><code class="
-msgstr "Erstellen Sie die folgende Ordnerstruktur, falls sie nicht existiert: <b><code class="
+msgstr "Create the following folder structure if it does not exist: <b><code class="
 
 msgid "Credit to %s for inspiration and the hard work to classify all components in 4.6.0 and inspiration to make this tool."
 msgstr "Credit to %s for inspiration and the hard work to classify all components in 4.6.0 and inspiration to make this tool."
@@ -89,13 +89,13 @@ msgid "Credit to %s for the contracts and ordinance work."
 msgstr "Credit to %s for the contracts and ordinance work."
 
 msgid "Current Status"
-msgstr "Aktueller Status"
+msgstr "Current Status"
 
 msgid "Custom character..."
-msgstr "Benutzerdefiniertes Zeichen..."
+msgstr "Custom character..."
 
 msgid "Dot [.]"
-msgstr "Punkt [.]"
+msgstr "Dot [.]"
 
 msgid "Download"
 msgstr "Download"
@@ -125,55 +125,55 @@ msgid "Edit name"
 msgstr "Edit name"
 
 msgid "Enter separator:"
-msgstr "Trennzeichen eingeben:"
+msgstr "Enter separator:"
 
 msgid "Error: File is not a valid JSON file."
-msgstr "Fehler: Die Datei ist keine gültige JSON-Datei."
+msgstr "Error: File is not a valid JSON file."
 
 msgid "Example of component name in the game:"
-msgstr "Beispiel für den Komponentennamen im Spiel:"
+msgstr "Example of component name in the game:"
 
 msgid "Files uploaded correctly."
-msgstr "Dateien korrekt hochgeladen."
+msgstr "Files uploaded correctly."
 
 msgid "Find the vehicles (ships, cars, motorcycles) you want to include in your translation. Drag them from the left to the right column."
-msgstr "Suchen Sie die Fahrzeuge (Schiffe, Autos, Motorräder), die Sie in Ihre Übersetzung aufnehmen möchten. Ziehen Sie sie von der linken in die rechte Spalte."
+msgstr "Find the vehicles (ships, cars, motorcycles) you want to include in your translation. Drag them from the left to the right column."
 
 msgid "Global.ini (Main file) in multiple files (max size %sBytes)"
-msgstr "Global.ini (Hauptdatei) in mehreren Dateien (maximale Größe %s Bytes)"
+msgstr "Global.ini (Main file) in multiple files (max size %sBytes)"
 
 msgid "Go to your Star Citizen installation folder<br/><small>(typically <code class="
-msgstr "Gehen Sie zu Ihrem Star Citizen Installationsordner<br/><small>(normalerweise <code class="
+msgstr "Go to your Star Citizen installation folder<br/><small>(typically <code class="
 
 msgid "Grade"
-msgstr "Stufe"
+msgstr "Grade"
 
 msgid "Grade:"
-msgstr "Stufe:"
+msgstr "Grade:"
 
 msgid "Hyphen [-]"
-msgstr "Bindestrich [-]"
+msgstr "Hyphen [-]"
 
 msgid "If <code>user.cfg</code> does not exist, simply create a new text file with this name in the <code>LIVE</code> folder."
-msgstr "Wenn <code>user.cfg</code> nicht existiert, erstellen Sie einfach eine neue Textdatei mit diesem Namen im <code>LIVE</code>-Ordner."
+msgstr "If <code>user.cfg</code> does not exist, simply create a new text file with this name in the <code>LIVE</code> folder."
 
 msgid "Indent"
-msgstr "Einrücken"
+msgstr "Indent"
 
 msgid "Latest global.ini version"
-msgstr "Neueste global.ini-Version"
+msgstr "Latest global.ini version"
 
 msgid "Latest global.ini version: %s"
-msgstr "Neueste global.ini Version: %s"
+msgstr "Latest global.ini version: %s"
 
 msgid "Load your setup from the last patch"
-msgstr "Laden Sie Ihre Konfiguration aus dem letzten Patch"
+msgstr "Load your setup from the last patch"
 
 msgid "Made by %s, tested by %s and %s."
-msgstr "Erstellt von %s, getestet von %s und %s."
+msgstr "Made by %s, tested by %s and %s."
 
 msgid "Missing"
-msgstr "Fehlt"
+msgstr "Missing"
 
 msgid "Name"
 msgstr "Name"
@@ -182,25 +182,25 @@ msgid "Name:"
 msgstr "Name:"
 
 msgid "Not specified"
-msgstr "Nicht angegeben"
+msgstr "Not specified"
 
 msgid "Once you have downloaded your <code>global.ini</code> file, follow these steps to activate it in Star Citizen:"
-msgstr "Nachdem Sie Ihre <code>global.ini</code>-Datei heruntergeladen haben, befolgen Sie diese Schritte, um sie in Star Citizen zu aktivieren:"
+msgstr "Once you have downloaded your <code>global.ini</code> file, follow these steps to activate it in Star Citizen:"
 
 msgid "Outdent"
-msgstr "Ausrücken"
+msgstr "Outdent"
 
 msgid "Place your downloaded <code>global.ini</code> file in this folder."
-msgstr "Legen Sie Ihre heruntergeladene <code>global.ini</code>-Datei in diesen Ordner."
+msgstr "Place your downloaded <code>global.ini</code> file in this folder."
 
 msgid "Please select a format for components."
-msgstr "Bitte wählen Sie ein Format für Komponenten aus."
+msgstr "Please select a format for components."
 
 msgid "Remember to save your setup for the next patch, so you don't have to setup component format and sort all your virtual ships again. Your grouping and corrected names will, of course, also be saved."
-msgstr "Denken Sie daran, Ihre Konfiguration für den nächsten Patch zu speichern, damit Sie das Komponentenformat nicht erneut einrichten und alle Ihre virtuellen Schiffe nicht wieder sortieren müssen. Ihre Gruppierungen und korrigierten Namen werden natürlich ebenfalls gespeichert."
+msgstr "Remember to save your setup for the next patch, so you don't have to setup component format and sort all your virtual ships again. Your grouping and corrected names will, of course, also be saved."
 
 msgid "Save and upload files"
-msgstr "Dateien speichern und hochladen"
+msgstr "Save and upload files"
 
 msgid "Save your settings"
 msgstr "Save your settings"
@@ -209,37 +209,37 @@ msgid "Save your settings!"
 msgstr "Save your settings!"
 
 msgid "Search for vehicle..."
-msgstr "Nach Fahrzeug suchen..."
+msgstr "Search for vehicle..."
 
 msgid "Security error"
-msgstr "Sicherheitsfehler"
+msgstr "Security error"
 
 msgid "Selected Vehicles (Sorted)"
-msgstr "Ausgewählte Fahrzeuge (sortiert)"
+msgstr "Selected Vehicles (Sorted)"
 
 msgid "Size"
-msgstr "Größe"
+msgstr "Size"
 
 msgid "Size:"
-msgstr "Größe:"
+msgstr "Size:"
 
 msgid "Space"
-msgstr "Leerzeichen"
+msgstr "Space"
 
 msgid "Space [ ]"
-msgstr "Leerzeichen [ ]"
+msgstr "Space [ ]"
 
 msgid "Star Citizen Localization Settings"
-msgstr "Einstellungen für Star-Citizen-Lokalisierung"
+msgstr "Star Citizen Localization Settings"
 
 msgid "The actual name of the component."
-msgstr "Der eigentliche Name der Komponente."
+msgstr "The actual name of the component."
 
 msgid "The necessary files have not been uploaded for Star Citizen localization yet."
-msgstr "Die erforderlichen Dateien wurden für die Star-Citizen-Lokalisierung noch nicht hochgeladen."
+msgstr "The necessary files have not been uploaded for Star Citizen localization yet."
 
 msgid "This version is displayed in the frontend via the download button."
-msgstr "Diese Version wird im Frontend über den Download-Button angezeigt."
+msgstr "This version is displayed in the frontend via the download button."
 
 msgid "This will be displayed at the top of the game's main menu, above the \"Persistent Universe\" button."
 msgstr "This will be displayed at the top of the game's main menu, above the \"Persistent Universe\" button."
@@ -251,43 +251,43 @@ msgid "Tip: You can drag vehicles back to the available list to remove them, or 
 msgstr "Tip: You can drag vehicles back to the available list to remove them, or press "
 
 msgid "To ensure the game uses the file, make sure that the <code>user.cfg</code> file in the <code>LIVE</code> folder contains the following line:"
-msgstr "Stellen Sie sicher, dass das Spiel die Datei verwendet, indem die Datei <code>user.cfg</code> im Ordner <code>LIVE</code> die folgende Zeile enthält:"
+msgstr "To ensure the game uses the file, make sure that the <code>user.cfg</code> file in the <code>LIVE</code> folder contains the following line:"
 
 msgid "Type (1 character)"
-msgstr "Typ (1 Zeichen)"
+msgstr "Type (1 character)"
 
 msgid "Type (4 characters)"
-msgstr "Typ (4 Zeichen)"
+msgstr "Type (4 characters)"
 
 msgid "Type:"
-msgstr "Typ:"
+msgstr "Type:"
 
 msgid "Underscore [_]"
-msgstr "Unterstrich [_]"
+msgstr "Underscore [_]"
 
 msgid "Uploaded"
-msgstr "Hochgeladen"
+msgstr "Uploaded"
 
 msgid "Vehicles.ini"
 msgstr "Vehicles.ini"
 
 msgid "Version message in the main menu"
-msgstr "Versionsmeldung im Hauptmenü"
+msgstr "Version message in the main menu"
 
 msgid "contracts.ini"
 msgstr "contracts.ini"
 
 msgid "e.g. 4.7.0-11445650"
-msgstr "z. B. 4.7.0-11445650"
+msgstr "e.g. 4.7.0-11445650"
 
 msgid "e.g. Alliance Aid"
-msgstr "z. B. Alliance Aid"
+msgstr "e.g. Alliance Aid"
 
 msgid "extras.ini"
 msgstr "extras.ini"
 
 msgid "global.ini is missing"
-msgstr "global.ini fehlt"
+msgstr "global.ini is missing"
 
 msgid "version not specified"
-msgstr "Version nicht angegeben"
+msgstr "version not specified"

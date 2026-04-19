@@ -8,7 +8,7 @@ add_shortcode( 'sc_localization_frontend', 'sc_loc_frontend_shortcode' );
 
 function sc_loc_frontend_shortcode() {
     if ( ! file_exists( SC_LOC_UPLOAD_DIR . '/components.ini' ) || ! file_exists( SC_LOC_UPLOAD_DIR . '/vehicles.ini' ) ) {
-        return '<p>' . esc_html__( 'Der er ikke uploadet de nødvendige filer for at vi kan lave Star Citizen lokalisering endnu.', 'sc-localization' ) . '</p>';
+        return '<p>' . esc_html__( 'The necessary files have not been uploaded for Star Citizen localization yet.', 'sc-localization' ) . '</p>';
     }
 
     wp_enqueue_script( 'jquery-ui-sortable' );
@@ -23,30 +23,30 @@ function sc_loc_frontend_shortcode() {
             'ajaxurl' => admin_url( 'admin-ajax.php' ),
             'nonce' => wp_create_nonce( 'sc_loc_download_nonce' ),
             'i18n'  => array(
-                    'confirmReset'   => __( 'Er du sikker på, at du vil nulstille sorteringen? Alle valgte fartøjer flyttes tilbage.', 'sc-localization' ),
-                    'enterSeparator' => __( 'Indtast adskillelsestegn:', 'sc-localization' ),
-                    'selectFormat'   => __( 'Vælg venligst et format til komponenter.', 'sc-localization' ),
-                    'configLoaded'   => __( 'Opsætningen er indlæst!', 'sc-localization' ),
-                    'invalidJson'    => __( 'Fejl: Filen er ikke en gyldig JSON-fil.', 'sc-localization' ),
-                    'unindent'       => __( 'Udryk', 'sc-localization' ),
-                    'indent'         => __( 'Indryk', 'sc-localization' ),
-                    'editName'       => __( 'Rediger navn', 'sc-localization' ),
-                    'space'          => __( 'Mellemrum', 'sc-localization' ),
-                    'searchVehicle'  => __( 'Søg efter fartøj...', 'sc-localization' ),
-                    'groupHeader'    => __( '%s. Gruppe', 'sc-localization' ), // If we had group headers
+                    'confirmReset'   => __( 'Are you sure you want to reset the sorting? All selected vehicles will be moved back.', 'sc-localization' ),
+                    'enterSeparator' => __( 'Enter separator:', 'sc-localization' ),
+                    'selectFormat'   => __( 'Please select a format for components.', 'sc-localization' ),
+                    'configLoaded'   => __( 'Configuration loaded!', 'sc-localization' ),
+                    'invalidJson'    => __( 'Error: File is not a valid JSON file.', 'sc-localization' ),
+                    'unindent'       => __( 'Outdent', 'sc-localization' ),
+                    'indent'         => __( 'Indent', 'sc-localization' ),
+                    'editName'       => __( 'Edit name', 'sc-localization' ),
+                    'space'          => __( 'Space', 'sc-localization' ),
+                    'searchVehicle'  => __( 'Search for vehicle...', 'sc-localization' ),
+                    'groupHeader'    => __( '%s. Group', 'sc-localization' ), // If we had group headers
             )
     ) );
 
     ob_start();
     ?>
     <div class="sc-loc-frontend">
-        <h3><?php esc_html_e( '1. Definer Komponent Format', 'sc-localization' ); ?></h3>
+        <h3><?php esc_html_e( '1. Define Component Format', 'sc-localization' ); ?></h3>
         <div class="sc-loc-help">
             <div class="sc-loc-help-title">
-                <p><?php echo wp_kses_post( __( 'Byg dit format ved at trække elementerne (chips) herunder ned i det blå område.<br/>Du kan også klikke på knapperne for at tilføje mellemrum eller bindestreger.', 'sc-localization' ) ); ?></p>
+                <p><?php echo wp_kses_post( __( 'Build your format by dragging the elements (chips) below into the blue area.<br/>You can also click the buttons to add spaces or hyphens.', 'sc-localization' ) ); ?></p>
                 <p><small>
                         <button class="button success" onclick="document.getElementById('sc-loc-load-btn').click()">
-                            <?php esc_html_e( 'Indlæs din opsætning fra sidste patch', 'sc-localization' ); ?>
+                            <?php esc_html_e( 'Load your setup from the last patch', 'sc-localization' ); ?>
                         </button>
                     </small></p>
                 <input type="file" id="sc-loc-load-btn" style="display:none" accept=".json">
@@ -54,27 +54,27 @@ function sc_loc_frontend_shortcode() {
             <div>
                 <ul>
                     <li><strong><?php esc_html_e( 'Type:', 'sc-localization' ); ?></strong><br/>
-                        <?php echo wp_kses_post( __( 'COOL eller C for Cooler<br/>POWR eller P for Powerplant<br/>SHLD eller S for Shield<br/>QDRV eller Q for Quantumdrive<br/>RADR eller R for Radar', 'sc-localization' ) ); ?>
+                        <?php echo wp_kses_post( __( 'COOL or C for Cooler<br/>POWR or P for Powerplant<br/>SHLD or S for Shield<br/>QDRV or Q for Quantumdrive<br/>RADR or R for Radar', 'sc-localization' ) ); ?>
                     </li>
                 </ul>
             </div>
             <div>
                 <ul>
                     <li>
-                        <strong><?php esc_html_e( 'Klassificering:', 'sc-localization' ); ?></strong><br/><?php echo wp_kses_post( __( 'CIV eller C (Civilian)<br/>CMP eller R (Competition/Racing)<br/>IND eller I (Industriel)<br/>MIL eller M (Military)<br/>STL eller S (Stealth)', 'sc-localization' ) ); ?>
+                        <strong><?php esc_html_e( 'Classification:', 'sc-localization' ); ?></strong><br/><?php echo wp_kses_post( __( 'CIV or C (Civilian)<br/>CMP or R (Competition/Racing)<br/>IND or I (Industrial)<br/>MIL or M (Military)<br/>STL or S (Stealth)', 'sc-localization' ) ); ?>
                     </li>
                 </ul>
             </div>
             <div>
                 <ul>
                     <li>
-                        <strong><?php esc_html_e( 'Størrelse:', 'sc-localization' ); ?></strong><br/><?php esc_html_e( '1, 2, 3 osv.', 'sc-localization' ); ?>
+                        <strong><?php esc_html_e( 'Size:', 'sc-localization' ); ?></strong><br/><?php esc_html_e( '1, 2, 3 etc.', 'sc-localization' ); ?>
                     </li>
                     <li>
-                        <strong><?php esc_html_e( 'Kvalitet:', 'sc-localization' ); ?></strong><br/><?php esc_html_e( 'A, B, C, D.', 'sc-localization' ); ?>
+                        <strong><?php esc_html_e( 'Grade:', 'sc-localization' ); ?></strong><br/><?php esc_html_e( 'A, B, C, D.', 'sc-localization' ); ?>
                     </li>
                     <li>
-                        <strong><?php esc_html_e( 'Navn:', 'sc-localization' ); ?></strong><br/><?php esc_html_e( 'Komponentens faktiske navn.', 'sc-localization' ); ?>
+                        <strong><?php esc_html_e( 'Name:', 'sc-localization' ); ?></strong><br/><?php esc_html_e( 'The actual name of the component.', 'sc-localization' ); ?>
                     </li>
                 </ul>
             </div>
@@ -82,88 +82,88 @@ function sc_loc_frontend_shortcode() {
 
         <div id="sc-loc-format-builder" class="sc-loc-drop-zone">
             <div class="chip" data-type="type_long"
-                 title="<?php esc_attr_e( 'F.eks. COOL, POWR', 'sc-localization' ); ?>"><?php esc_html_e( 'Type (4 tegn)', 'sc-localization' ); ?></div>
+                 title="<?php esc_attr_e( 'E.g. COOL, POWR', 'sc-localization' ); ?>"><?php esc_html_e( 'Type (4 characters)', 'sc-localization' ); ?></div>
             <div class="chip" data-type="type_short"
-                 title="<?php esc_attr_e( 'F.eks. C, P', 'sc-localization' ); ?>"><?php esc_html_e( 'Type (1 tegn)', 'sc-localization' ); ?></div>
+                 title="<?php esc_attr_e( 'E.g. C, P', 'sc-localization' ); ?>"><?php esc_html_e( 'Type (1 character)', 'sc-localization' ); ?></div>
             <div class="chip" data-type="class_long"
-                 title="<?php esc_attr_e( 'F.eks. MIL, STL', 'sc-localization' ); ?>"><?php esc_html_e( 'Klassificering (3 tegn)', 'sc-localization' ); ?></div>
+                 title="<?php esc_attr_e( 'E.g. MIL, STL', 'sc-localization' ); ?>"><?php esc_html_e( 'Classification (3 characters)', 'sc-localization' ); ?></div>
             <div class="chip" data-type="class_short"
-                 title="<?php esc_attr_e( 'F.eks. M, S', 'sc-localization' ); ?>"><?php esc_html_e( 'Klassificering (1 tegn)', 'sc-localization' ); ?></div>
+                 title="<?php esc_attr_e( 'E.g. M, S', 'sc-localization' ); ?>"><?php esc_html_e( 'Classification (1 character)', 'sc-localization' ); ?></div>
             <div class="chip" data-type="size"
-                 title="<?php esc_attr_e( 'F.eks. S1, S2', 'sc-localization' ); ?>"><?php esc_html_e( 'Størrelse', 'sc-localization' ); ?></div>
+                 title="<?php esc_attr_e( 'E.g. S1, S2', 'sc-localization' ); ?>"><?php esc_html_e( 'Size', 'sc-localization' ); ?></div>
             <div class="chip" data-type="grade"
-                 title="<?php esc_attr_e( 'F.eks. A, B', 'sc-localization' ); ?>"><?php esc_html_e( 'Kvalitet', 'sc-localization' ); ?></div>
+                 title="<?php esc_attr_e( 'E.g. A, B', 'sc-localization' ); ?>"><?php esc_html_e( 'Grade', 'sc-localization' ); ?></div>
             <div class="chip" data-type="name"
-                 title="<?php esc_attr_e( 'Selve navnet på komponenten', 'sc-localization' ); ?>"><?php esc_html_e( 'Navn', 'sc-localization' ); ?></div>
+                 title="<?php esc_attr_e( 'The actual name of the component.', 'sc-localization' ); ?>"><?php esc_html_e( 'Name', 'sc-localization' ); ?></div>
         </div>
 
         <div class="sc-loc-separator-controls">
-            <span><?php esc_html_e( 'Tilføj adskiller:', 'sc-localization' ); ?></span>
+            <span><?php esc_html_e( 'Add separator:', 'sc-localization' ); ?></span>
             <button type="button" class="add-sep"
-                    data-sep=" "><?php esc_html_e( 'Mellemrum [ ]', 'sc-localization' ); ?></button>
+                    data-sep=" "><?php esc_html_e( 'Space [ ]', 'sc-localization' ); ?></button>
             <button type="button" class="add-sep"
-                    data-sep="-"><?php esc_html_e( 'Bindestreg [-]', 'sc-localization' ); ?></button>
+                    data-sep="-"><?php esc_html_e( 'Hyphen [-]', 'sc-localization' ); ?></button>
             <button type="button" class="add-sep"
-                    data-sep="_"><?php esc_html_e( 'Understreg [_]', 'sc-localization' ); ?></button>
+                    data-sep="_"><?php esc_html_e( 'Underscore [_]', 'sc-localization' ); ?></button>
             <button type="button" class="add-sep"
-                    data-sep="."><?php esc_html_e( 'Punktum [.]', 'sc-localization' ); ?></button>
+                    data-sep="."><?php esc_html_e( 'Dot [.]', 'sc-localization' ); ?></button>
             <button type="button"
-                    id="sc-loc-custom-sep"><?php esc_html_e( 'Eget tegn...', 'sc-localization' ); ?></button>
+                    id="sc-loc-custom-sep"><?php esc_html_e( 'Custom character...', 'sc-localization' ); ?></button>
         </div>
         <div class="sc-loc-active-format-container">
             <div id="sc-loc-active-format" class="sc-loc-drop-zone active-format" style="flex-grow:1">
                 <!-- Her trækkes de ned -->
             </div>
             <button id="sc-loc-clear-format">
-                <?php esc_html_e( 'Ryd og start forfra', 'sc-localization' ); ?>
+                <?php esc_html_e( 'Clear and start over', 'sc-localization' ); ?>
             </button>
         </div>
         <div class="sc-loc-help">
-            <i><?php esc_html_e( 'Tip: Dobbeltklik på et element i det blå felt for at fjerne det igen.', 'sc-localization' ); ?></i>
+            <i><?php esc_html_e( 'Tip: Double-click an element in the blue area to remove it again.', 'sc-localization' ); ?></i>
         </div>
         <div class="sc-loc-active-format-container">
-            <span><?php esc_html_e( 'Eksempel på komponent navn i spillet:', 'sc-localization' ); ?></span>
-            <div id="sc-loc-format-example">
+            <span><?php esc_html_e( 'Example of component name in the game:', 'sc-localization' ); ?></span></code>
+            <div id="sc-loc-format-example" class="notranslate" translate="no">
                 <!-- generate an example here -->
             </div>
         </div>
 
         <input type="hidden" id="sc-loc-format-input" name="sc_loc_format" value="">
 
-        <h3><?php esc_html_e( '2. Vælg og Sorter Fartøjer', 'sc-localization' ); ?></h3>
+        <h3><?php esc_html_e( '2. Select and Sort Vehicles', 'sc-localization' ); ?></h3>
         <div class="sc-loc-help">
             <div>
-                <p><?php esc_html_e( 'Find de fartøjer (skibe, biler, motorcykler) du vil have med i din oversættelse. Træk dem fra venstre til højre kolonne.', 'sc-localization' ); ?></p>
+                <p><?php esc_html_e( 'Find the vehicles (ships, cars, motorcycles) you want to include in your translation. Drag them from the left to the right column.', 'sc-localization' ); ?></p>
             </div>
             <div>
                 <p>
-                    <small><?php esc_html_e( 'Tip: Du kan trække fartøjer tilbage til den tilgængelige liste for at fjerne dem, eller trykke på "Ryd listen" for at nulstille.', 'sc-localization' ); ?></small>
+                    <small><?php esc_html_e( 'Tip: You can drag vehicles back to the available list to remove them, or press "Clear list" to reset.', 'sc-localization' ); ?></small>
                 </p>
                 <p>
-                    <small><?php esc_html_e( 'Bonustip: Du kan gruppere fartøjer ved at klikke på ⇄ ikonet. Indrykkede fartøjer vil dele det samme nummer som det overstående fartøj. Du kan stadig ændre navnet ved at klikke på ✎.', 'sc-localization' ); ?></small>
+                    <small><?php esc_html_e( 'Bonus Tip: You can group vehicles by clicking on the ⇄ icon. Indented vehicles will share the same number as the vehicle above. You can still change the name by clicking on ✎.', 'sc-localization' ); ?></small>
                 </p>
             </div>
         </div>
         <div class="sc-loc-columns">
             <div class="sc-loc-col">
-                <h4><?php esc_html_e( 'Tilgængelige Fartøjer', 'sc-localization' ); ?></h4>
+                <h4><?php esc_html_e( 'Available Vehicles', 'sc-localization' ); ?></h4>
                 <div class="sc-loc-search-container">
                     <input type="text" id="sc-loc-vehicle-search"
-                           placeholder="<?php esc_attr_e( 'Søg efter fartøj...', 'sc-localization' ); ?>">
+                           placeholder="<?php esc_attr_e( 'Search for vehicle...', 'sc-localization' ); ?>">
                 </div>
                 <ul id="sc-loc-available-vehicles" class="sc-loc-list">
                     <?php foreach ( $vehicles as $key => $name ) : ?>
                         <li data-key="<?php echo esc_attr( $key ); ?>" data-name="<?php echo esc_attr( $name ); ?>">
-                            <span class="vehicle-name"><?php echo esc_html( $name ); ?></span>
+                            <span class="vehicle-name notranslate" translate="no"><?php echo esc_html( $name ); ?></span>
                         </li>
                     <?php endforeach; ?>
                 </ul>
             </div>
             <div class="sc-loc-col">
-                <h4><?php esc_html_e( 'Valgte Fartøjer (Sorteret rækkefølge)', 'sc-localization' ); ?></h4>
+                <h4><?php esc_html_e( 'Selected Vehicles (Sorted)', 'sc-localization' ); ?></h4>
                 <div class="sc-loc-search-container">
                     <input type="button" id="sc-loc-vehicle-clear"
-                           value="<?php esc_attr_e( 'Ryd listen', 'sc-localization' ); ?>">
+                           value="<?php esc_attr_e( 'Clear list', 'sc-localization' ); ?>">
                 </div>
                 <ul id="sc-loc-selected-vehicles" class="sc-loc-list">
                     <!-- Her trækkes de over -->
@@ -171,39 +171,39 @@ function sc_loc_frontend_shortcode() {
             </div>
         </div>
 
-        <h3><?php esc_html_e( '3. Download din tilpassede file', 'sc-localization' ); ?></h3>
+        <h3><?php esc_html_e( '3. Download your customized file', 'sc-localization' ); ?></h3>
         <div style="margin-top: 20px;">
             <button id="sc-loc-download-btn" class="button success"><?php
                 echo esc_html_x( 'Download', 'Frontend download button', 'sc-localization' ); ?><br/>
-                <strong><?php echo $global_ini_version ? '(' . esc_html( $global_ini_version ) . ')' : '(' . esc_html__( 'version ikke angivet', 'sc-localization' ) . ')';
+                <strong><?php echo $global_ini_version ? '(' . esc_html( $global_ini_version ) . ')' : '(' . esc_html__( 'version not specified', 'sc-localization' ) . ')';
                     ?></strong></button>
         </div>
 
         <div class="sc-loc-help" style="margin-top: 30px; border-left-color: #46b450;">
             <div>
-                <h3><?php esc_html_e( '4. Installation af filen', 'sc-localization' ); ?></h3>
-                <p><?php echo wp_kses_post( __( 'Når du har downloadet din <code>global.ini</code> fil, skal du følge disse trin for at aktivere den i Star Citizen:', 'sc-localization' ) ); ?></p>
+                <h3><?php esc_html_e( '4. File Installation', 'sc-localization' ); ?></h3>
+                <p><?php echo wp_kses_post( __( 'Once you have downloaded your <code>global.ini</code> file, follow these steps to activate it in Star Citizen:', 'sc-localization' ) ); ?></p>
                 <ol>
-                    <li><?php echo wp_kses_post( __( 'Gå til din Star Citizen installationsmappe<br/><small>(typisk <code>Program Files\Roberts Space Industries\StarCitizen\LIVE</code>).</small>', 'sc-localization' ) ); ?></li>
-                    <li><?php echo wp_kses_post( __( 'Opret følgende mappestruktur hvis den ikke findes: <b><code>data\Localization\english</code></b>.', 'sc-localization' ) ); ?></li>
-                    <li><?php echo wp_kses_post( __( 'Placer din downloadede <code>global.ini</code> fil i denne mappe.', 'sc-localization' ) ); ?></li>
+                    <li><?php echo wp_kses_post( __( 'Go to your Star Citizen installation folder<br/><small>(typically <code class="notranslate">Program Files\Roberts Space Industries\StarCitizen\LIVE</code>).</small>', 'sc-localization' ) ); ?></li>
+                    <li><?php echo wp_kses_post( __( 'Create the following folder structure if it does not exist: <b><code class="language-html">data\\Localization\\english</code></b>.', 'sc-localization' ) ); ?></li>
+                    <li><?php echo wp_kses_post( __( 'Place your downloaded <code>global.ini</code> file in this folder.', 'sc-localization' ) ); ?></li>
                 </ol>
             </div>
             <div>
-                <h4><?php esc_html_e( 'Konfiguration', 'sc-localization' ); ?></h4>
-                <p><?php echo wp_kses_post( __( 'For at spillet skal bruge filen, skal du sikre dig at <code>user.cfg</code> filen i <code>LIVE</code> mappen indeholder følgende linje:', 'sc-localization' ) ); ?></p>
+                <h4><?php esc_html_e( 'Configuration', 'sc-localization' ); ?></h4>
+                <p><?php echo wp_kses_post( __( 'To ensure the game uses the file, make sure that the <code>user.cfg</code> file in the <code>LIVE</code> folder contains the following line:', 'sc-localization' ) ); ?></p>
                 <pre style="background: #eee; padding: 5px; border-radius: 3px;">g_language = english</pre>
                 <p>
-                    <small><?php echo wp_kses_post( __( 'Hvis <code>user.cfg</code> ikke findes, skal du blot oprette en ny tekstfil med dette navn i <code>LIVE</code> mappen.', 'sc-localization' ) ); ?></small>
+                    <small><?php echo wp_kses_post( __( 'If <code>user.cfg</code> does not exist, simply create a new text file with this name in the <code>LIVE</code> folder.', 'sc-localization' ) ); ?></small>
                 </p>
             </div>
             <div>
-                <h4><?php esc_html_e( 'Gem din opsætning!', 'sc-localization' ); ?></h4>
+                <h4><?php esc_html_e( 'Save your settings!', 'sc-localization' ); ?></h4>
                 <p>
-                    <?php esc_html_e( 'Husk at gemme din opsætning til den næste patch, så slipper du for at lave dit format og sortere alle dine virtuelle rumskibe igen. Din gruppering og dine rettede navne bliver selvfølgelig også gemt.', 'sc-localization' ); ?>
+                    <?php esc_html_e( 'Remember to save your setup for the next patch, so you don\'t have to setup component format and sort all your virtual ships again. Your grouping and corrected names will, of course, also be saved.', 'sc-localization' ); ?>
                 </p>
                 <button id="sc-loc-save-btn"
-                        class="button success"><?php echo wp_kses_post( __( 'Gem din opsætning<br/>til den næste patch', 'sc-localization' ) ); ?></button>
+                        class="button success"><?php echo wp_kses_post( __( 'Save your settings', 'sc-localization' ) ); ?></button>
             </div>
         </div>
         <p>

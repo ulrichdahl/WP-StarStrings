@@ -86,7 +86,7 @@ add_action( 'wp_ajax_nopriv_sc_loc_download', 'sc_loc_handle_download' );
 
 function sc_loc_handle_download() {
 	if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'sc_loc_download_nonce' ) ) {
-		wp_die( esc_html__( 'Sikkerhedsfejl', 'sc-localization' ) );
+		wp_die( esc_html__( 'Security error', 'sc-localization' ) );
 	}
 
 	$format_json   = isset( $_POST['format'] ) ? stripslashes( $_POST['format'] ) : '[]';
@@ -99,21 +99,24 @@ function sc_loc_handle_download() {
 	$components_path    = SC_LOC_UPLOAD_DIR . '/components.ini';
 	$vehicles_path      = SC_LOC_UPLOAD_DIR . '/vehicles.ini';
 	$contracts_path = SC_LOC_UPLOAD_DIR . '/contracts.ini';
+	$extras_path = SC_LOC_UPLOAD_DIR . '/extras.ini';
 	$global_ini_version = trim( (string) get_option( 'sc_loc_global_ini_version', '' ) );
 	$version_message = trim( (string) get_option( 'sc_loc_version_message', '' ) );
 
 	if ( ! file_exists( $global_path ) ) {
-		wp_die( esc_html__( 'global.ini mangler', 'sc-localization' ) );
+		wp_die( esc_html__( 'global.ini is missing', 'sc-localization' ) );
 	}
 
 	$global_content  = file( $global_path, FILE_IGNORE_NEW_LINES );
 	$components_data = sc_loc_parse_ini( $components_path );
 	$vehicles_data   = sc_loc_parse_ini( $vehicles_path );
 	$contracts_data = sc_loc_parse_ini( $contracts_path );
+	$extras_data = sc_loc_parse_ini( $extras_path );
 
 	// Forbered komponent erstatninger
 	$replacements = array(
 		...$contracts_data,
+		...$extras_data,
 		'items_commodities_aphorite_raw'      => 'Aphorite Ore',
 		'items_commodities_aslarite_raw'      => 'Aslarite Ore',
 		'items_commodities_beradom_raw'       => 'Beradom Ore',
@@ -255,6 +258,10 @@ function sc_loc_handle_download() {
 		$counter = 0;
 	}
 	file_put_contents( SC_LOC_UPLOAD_DIR . '/counter', ++ $counter );
+	// Clear all output buffers to prevent plugins (like TranslatePress) from injecting content into the download stream
+	while (ob_get_level()) {
+		ob_end_clean();
+	}
 	// Send filen til download
 	header( 'Content-Description: File Transfer' );
 	header( 'Content-Type: text/plain' );

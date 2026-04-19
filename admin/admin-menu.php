@@ -4,17 +4,66 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-add_action( 'admin_menu', 'sc_loc_add_admin_menu' );
+add_action('admin_menu', 'sc_loc_add_admin_menu');
+add_action('admin_menu', function() {
+    remove_submenu_page('star-citizen', 'star-citizen');
+}, 999);
+add_action('admin_head', 'my_leaderboard_fix_svg_size');
+
+function my_leaderboard_fix_svg_size() {
+    echo '
+    <style>
+        /* Målret billedet i dit specifikke menupunkt */
+        #toplevel_page_star-citizen .wp-menu-image img {
+            width: 20px !important;   /* WordPress ikoner er 20x20 */
+            height: 20px !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            box-sizing: border-box;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        /* Centrer ikonet i cirklen/feltet */
+        #toplevel_page_star-citizen .wp-menu-image {
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+    ';
+}
 
 function sc_loc_add_admin_menu() {
-    add_menu_page(
-            'SC Localization',
-            'SC Localization',
-            'manage_options',
-            'sc-localization',
-            'sc_loc_admin_page',
-            'dashicons-translation',
+    global $menu;
+    $menu_slug = 'star-citizen';
+
+    $exists = false;
+    foreach ( $menu as $item ) {
+        if ( $item[2] == $menu_slug ) {
+            $exists = true;
+            break;
+        }
+    }
+    if (!$exists) {
+        add_menu_page(
+            'Star Citizen', // Page title
+            'Star Citizen', // Menu title
+            'manage_options', // Capability
+            'star-citizen', // Menu slug
+            null, // Callback function
+                plugins_url('sc-localization/assets/scc-ogo.svg', 'sc-localization'), // Icon (WordPress Dashicon)
             26
+        );
+    }
+    add_submenu_page(
+        'star-citizen', // Parent slug
+        'Localization', // Page title
+        'Localization', // Menu title
+        'manage_options', // Capability
+        'sc-localization', // Menu slug
+        'sc_loc_admin_page', // Callback function
+        10
     );
 }
 
@@ -35,7 +84,7 @@ function sc_loc_admin_page() {
         }
 
         sc_loc_handle_uploads();
-        echo '<div class="updated"><p>' . esc_html__( 'Filer uploadet korrekt.', 'sc-localization' ) . '</p></div>';
+        echo '<div class="updated"><p>' . esc_html__( 'Files uploaded correctly.', 'sc-localization' ) . '</p></div>';
     }
 
     $global_ini_version = get_option( 'sc_loc_global_ini_version', '' );
@@ -51,13 +100,13 @@ function sc_loc_admin_page() {
     echo '<pre>' . implode( '<br/>', $out ) . '</pre>';
     ?>
     <div class="wrap">
-        <h1><?php esc_html_e( 'Star Citizen Localization Indstillinger', 'sc-localization' ); ?></h1>
+        <h1><?php esc_html_e( 'Star Citizen Localization Settings', 'sc-localization' ); ?></h1>
         <form method="post" enctype="multipart/form-data">
             <?php wp_nonce_field( 'sc_loc_upload_action', 'sc_loc_upload_nonce' ); ?>
             <table class="form-table">
                 <tr>
                     <th scope="row"><label
-                                for="sc_loc_global_ini_version"><?php esc_html_e( 'Seneste global.ini version', 'sc-localization' ); ?></label>
+                                 for="sc_loc_global_ini_version"><?php esc_html_e( 'Latest global.ini version', 'sc-localization' ); ?></label>
                     </th>
                     <td>
                         <input
@@ -66,14 +115,14 @@ function sc_loc_admin_page() {
                                 id="sc_loc_global_ini_version"
                                 class="regular-text"
                                 value="<?php echo esc_attr( $global_ini_version ); ?>"
-                                placeholder="<?php esc_attr_e( 'f.eks. 4.7.0-11445650', 'sc-localization' ); ?>"
+                                 placeholder="<?php esc_attr_e( 'e.g. 4.7.0-11445650', 'sc-localization' ); ?>"
                         >
-                        <p class="description"><?php esc_html_e( 'Denne version vises i frontend ved download-knappen.', 'sc-localization' ); ?></p>
+                         <p class="description"><?php esc_html_e( 'This version is displayed in the frontend via the download button.', 'sc-localization' ); ?></p>
                     </td>
                 </tr>
                 <tr>
                     <th scope="row"><label
-                                for="sc_loc_version_message"><?php esc_html_e( 'Version besked i hovedmenuen', 'sc-localization' ); ?></label>
+                                 for="sc_loc_version_message"><?php esc_html_e( 'Version message in the main menu', 'sc-localization' ); ?></label>
                     </th>
                     <td>
                         <input
@@ -82,14 +131,14 @@ function sc_loc_admin_page() {
                                 id="sc_loc_version_message"
                                 class="regular-text"
                                 value="<?php echo esc_attr( $version_message ); ?>"
-                                placeholder="<?php esc_attr_e( 'f.eks. Alliance Aid', 'sc-localization' ); ?>"
+                                 placeholder="<?php esc_attr_e( 'e.g. Alliance Aid', 'sc-localization' ); ?>"
                         >
-                        <p class="description"><?php esc_html_e( 'Denne vil blive vist øverst i spillets hovedmenu, over knappen "Persistent Universe".', 'sc-localization' ); ?></p>
+                         <p class="description"><?php esc_html_e( 'This will be displayed at the top of the game\'s main menu, above the "Persistent Universe" button.', 'sc-localization' ); ?></p>
                     </td>
                 </tr>
                 <tr>
                     <th scope="row"><label
-                                for="global_ini"><?php printf( esc_html__( 'Global.ini (Hovedfil) i flere filer (max størrelse %sBytes)', 'sc-localization' ), ini_get( 'upload_max_filesize' ) ); ?></label>
+                                 for="global_ini"><?php printf( esc_html__( 'Global.ini (Main file) in multiple files (max size %sBytes)', 'sc-localization' ), ini_get( 'upload_max_filesize' ) ); ?></label>
                     </th>
                     <td>
                         <input type="file" name="global_ini" id="global_ini" accept=".zip">
@@ -114,18 +163,24 @@ function sc_loc_admin_page() {
                     </th>
                     <td><input type="file" name="contracts_ini" id="contracts_ini" accept=".ini"></td>
                 </tr>
+                <tr>
+                    <th scope="row"><label
+                                for="extras_ini"><?php esc_html_e( 'extras.ini', 'sc-localization' ); ?></label>
+                    </th>
+                    <td><input type="file" name="extras_ini" id="extras_ini" accept=".ini"></td>
+                </tr>
             </table>
-            <?php submit_button( __( 'Gem og upload filer', 'sc-localization' ) ); ?>
+            <?php submit_button( __( 'Save and upload files', 'sc-localization' ) ); ?>
         </form>
 
         <hr>
-        <h2><?php esc_html_e( 'Nuværende Status', 'sc-localization' ); ?></h2>
+        <h2><?php esc_html_e( 'Current Status', 'sc-localization' ); ?></h2>
         <ul>
             <li><?php printf( esc_html__( 'Downloads: %d', 'sc-localization' ), $counter ); ?></li>
-            <li><?php printf( esc_html__( 'Seneste global.ini version: %s', 'sc-localization' ), $global_ini_version ? esc_html( $global_ini_version ) : '<span style="color:red;">' . esc_html__( 'Ikke angivet', 'sc-localization' ) . '</span>' ); ?></li>
-            <?php foreach ( array( 'global.ini', 'components.ini', 'vehicles.ini', 'contracts.ini' ) as $file ) { ?>
+            <li><?php printf( esc_html__( 'Latest global.ini version: %s', 'sc-localization' ), $global_ini_version ? esc_html( $global_ini_version ) : '<span style="color:red;">' . esc_html__( 'Not specified', 'sc-localization' ) . '</span>' ); ?></li>
+            <?php foreach ( array( 'global.ini', 'components.ini', 'vehicles.ini', 'contracts.ini', 'extras.ini' ) as $file ) { ?>
                 <li><?php echo $file; ?>
-                    : <?php echo file_exists( SC_LOC_UPLOAD_DIR . '/' . $file ) ? '<span style="color:green;">' . esc_html__( 'Uploadet', 'sc-localization' ) . ': ' . date( "D, d M Y H:i:s", filemtime( SC_LOC_UPLOAD_DIR . '/' . $file ) ) . '</span> <a href="' . wp_upload_dir()['baseurl'] . '/sc-localization/' . $file . '" target="_blank">' . esc_html__( 'Download', 'sc-localization' ) . '</a>' : '<span style="color:red;">' . esc_html__( 'Mangler', 'sc-localization' ) . '</span>'; ?></li>
+                    : <?php echo file_exists( SC_LOC_UPLOAD_DIR . '/' . $file ) ? '<span style="color:green;">' . esc_html__( 'Uploaded', 'sc-localization' ) . ': ' . date( "D, d M Y H:i:s", filemtime( SC_LOC_UPLOAD_DIR . '/' . $file ) ) . '</span> <a href="' . wp_upload_dir()['baseurl'] . '/sc-localization/' . $file . '" target="_blank">' . esc_html__( 'Download', 'sc-localization' ) . '</a>' : '<span style="color:red;">' . esc_html__( 'Missing', 'sc-localization' ) . '</span>'; ?></li>
             <?php } // endforeach ?>
         </ul>
     </div>
@@ -135,7 +190,7 @@ function sc_loc_admin_page() {
 
 function sc_loc_handle_uploads() {
     //echo '<pre>'.var_export($_FILES,1).'</pre>';
-    $files = array( 'global_ini', 'global_ini_1', 'components_ini', 'vehicles_ini', 'contracts_ini' );
+    $files = array( 'global_ini', 'global_ini_1', 'components_ini', 'vehicles_ini', 'contracts_ini', 'extras_ini' );
     foreach ( $files as $file_key ) {
         if ( ! empty( $_FILES[ $file_key ]['tmp_name'] ) ) {
             $destination = SC_LOC_UPLOAD_DIR . '/';

@@ -306,7 +306,7 @@ jQuery(document).ready(function($) {
                         li.detach().appendTo(listeContainer);
                     } else {
                         // Hvis det ikke findes (måske fjernet fra INI), opret et nyt
-                        li = $('<li data-key="' + emne.key + '" data-name="' + emne.name + '"><span class="vehicle-name">' + emne.name + '</span></li>');
+                        li = $('<li data-key="' + emne.key + '" data-name="' + emne.name + '"><span class="vehicle-name notranslate" translate="no">' + emne.name + '</span></li>');
                         li.appendTo(listeContainer);
                     }
 
