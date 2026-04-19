@@ -93,4 +93,4 @@ https://youtu.be/s29tpiQWya8?si=CW6c6cC_zSrGmsxY
 
 ## License
 
-GPL-2.0 or later
+GPL-3.0 or later

@@ -4,17 +4,33 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
+$sc_menu_slug = 'star-citizen';
+function sc_loc_menu_exists() {
+    global $menu, $sc_menu_slug;
+    if (!is_array($menu)) {
+        return false;
+    }
+    foreach ( $menu as $item ) {
+        if ( $item[2] == $sc_menu_slug ) {
+            return true;
+        }
+    }
+    return false;
+}
+
 add_action('admin_menu', 'sc_loc_add_admin_menu');
 add_action('admin_menu', function() {
-    remove_submenu_page('star-citizen', 'star-citizen');
+    global $sc_menu_slug;
+    if (sc_loc_menu_exists()) remove_submenu_page($sc_menu_slug, $sc_menu_slug);
 }, 999);
-add_action('admin_head', 'my_leaderboard_fix_svg_size');
+add_action('admin_head', 'sc_loc_fix_svg_size');
 
-function my_leaderboard_fix_svg_size() {
-    echo '
+function sc_loc_fix_svg_size() {
+    global $sc_menu_slug;
+    if (sc_loc_menu_exists()) echo '
     <style>
         /* Målret billedet i dit specifikke menupunkt */
-        #toplevel_page_star-citizen .wp-menu-image img {
+        #toplevel_page_'.$sc_menu_slug.' .wp-menu-image img {
             width: 20px !important;   /* WordPress ikoner er 20x20 */
             height: 20px !important;
             padding: 0 !important;
@@ -25,7 +41,7 @@ function my_leaderboard_fix_svg_size() {
         }
 
         /* Centrer ikonet i cirklen/feltet */
-        #toplevel_page_star-citizen .wp-menu-image {
+        #toplevel_page_'.$sc_menu_slug.' .wp-menu-image {
             display: flex !important;
             align-items: center;
             justify-content: center;
@@ -35,17 +51,7 @@ function my_leaderboard_fix_svg_size() {
 }
 
 function sc_loc_add_admin_menu() {
-    global $menu;
-    $menu_slug = 'star-citizen';
-
-    $exists = false;
-    foreach ( $menu as $item ) {
-        if ( $item[2] == $menu_slug ) {
-            $exists = true;
-            break;
-        }
-    }
-    if (!$exists) {
+    if (!sc_loc_menu_exists()) {
         add_menu_page(
             'Star Citizen', // Page title
             'Star Citizen', // Menu title
@@ -95,9 +101,6 @@ function sc_loc_admin_page() {
     } else {
         $counter = 0;
     }
-
-    exec( 'ls -l ' . SC_LOC_UPLOAD_DIR . '/', $out );
-    echo '<pre>' . implode( '<br/>', $out ) . '</pre>';
     ?>
     <div class="wrap">
         <h1><?php esc_html_e( 'Star Citizen Localization Settings', 'sc-localization' ); ?></h1>

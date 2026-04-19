@@ -5,7 +5,8 @@
  * Description: Star Citizen Localization Tool for WordPress.
  * Version: 1.4.5
  * Author: Ulrich Dahl <ulrich.dahl@gmail.com>
- * License: GPL2
+ * Author URI: https://github.com/ulrichdahl/
+ * License: GPL3
  * Tool: Opencode, LM Studio, google/gemma-4-26b-a4b
  * Text Domain: leaderboard
  */
