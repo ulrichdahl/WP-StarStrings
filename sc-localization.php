@@ -3,7 +3,7 @@
  * Plugin Name: Star Citizen Localization
  * Plugin URI: https://github.com/ulrichdahl/WP-StarStrings
  * Description: Star Citizen Localization Tool for WordPress.
- * Version: 1.4.5
+ * Version: 1.4.6
  * Author: Ulrich Dahl <ulrich.dahl@gmail.com>
  * Author URI: https://github.com/ulrichdahl/
  * License: GPL3
