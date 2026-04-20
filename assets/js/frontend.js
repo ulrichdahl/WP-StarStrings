@@ -361,8 +361,10 @@ jQuery(document).ready(function($) {
         var form = $('<form method="POST" action="' + scLocData.ajaxurl + '">');
         form.append('<input type="hidden" name="action" value="sc_loc_download">');
         form.append('<input type="hidden" name="nonce" value="' + scLocData.nonce + '">');
-        form.append('<input type="hidden" name="format" value=\'' + format + '\'>');
-        form.append('<input type="hidden" name="vehicles" value=\'' + JSON.stringify(selectedVehicles) + '\'>');
+        var formatInput = $('<input type="hidden" name="format">').val(format);
+        var vehiclesInput = $('<input type="hidden" name="vehicles">').val(JSON.stringify(selectedVehicles));
+        form.append(formatInput);
+        form.append(vehiclesInput);
         $('body').append(form);
         form.submit();
         form.remove();
