@@ -194,9 +194,11 @@ function sc_loc_handle_download() {
 	if ( empty( $locale ) ) {
 		$locale = get_locale();
 	}
-	// Opdater global.ini indhold
-	$replacements['Frontend_play_star_citizen,P'] = 'Language file generated '.strftime(substr($locale,0,2) == 'en' ? '%A %e. %B %l:%M %p %Y' : '%A %e. %B %k:%M %Y', time()).'\nRemember to update your file after game updates!';
+	//$replacements['Frontend_PU_Version,P'] = $version_message . '\n' . $global_ini_version;
+	$replacements['Frontend_play_star_citizen,P'] = 'Remember to update your language file!\nAfter every game update';
+	$replacements['ui_pregame_persistentuniverse_desc'] = '%existing%\n\nLanguage file generated '.strftime(substr($locale,0,2) == 'en' ? '%l:%M %p %e. %B %Y' : '%k:%M %e. %B %Y', time()) . ' at uniteddanes.org';
 
+	// Opdater global.ini indhold
 	$output = "";
 	foreach ( $global_content as $line ) {
 		// Fjern eksisterende BOM hvis den findes i starten af filen
@@ -208,7 +210,7 @@ function sc_loc_handle_download() {
 			list( $key, $value ) = explode( '=', $line, 2 );
 			$trimmed_key = trim( $key );
 			if ( isset( $replacements[ $trimmed_key ] ) ) {
-				$output .= $trimmed_key . "=" . trim( $replacements[ $trimmed_key ] ) . "\r\n";
+				$output .= $trimmed_key . "=" . str_replace('%existing%', trim($value), trim( $replacements[ $trimmed_key ] )) . "\r\n";
 			} else {
 				$output .= $line . "\r\n";
 			}
