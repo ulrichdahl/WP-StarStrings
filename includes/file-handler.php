@@ -117,44 +117,6 @@ function sc_loc_handle_download() {
 	$replacements = array(
 		...$contracts_data,
 		...$extras_data,
-		'items_commodities_aphorite_raw'      => 'Aphorite Ore',
-		'items_commodities_aslarite_raw'      => 'Aslarite Ore',
-		'items_commodities_beradom_raw'       => 'Beradom Ore',
-		'items_commodities_beryl_raw'         => 'Beryl Ore',
-		'items_commodities_bexalite_raw'      => 'Bexalite Ore',
-		'items_commodities_carinite_raw'      => 'Carinite Ore',
-		'items_commodities_corundum_raw'      => 'Corundum Ore',
-		'items_commodities_diamond_raw'       => 'Diamond Ore',
-		'items_commodities_dolivine_raw'      => 'Dolivine Ore',
-		'items_commodities_feynmaline_raw'    => 'Feynmaline Ore',
-		'items_commodities_glacosite_raw'     => 'Glacosite Ore',
-		'items_commodities_hadanite_raw'      => 'Hadanite Ore',
-		'items_commodities_hephaestanite_raw' => 'Heph.tanite Ore',
-		'items_commodities_janalite_raw'      => 'Janalite Ore',
-		'items_commodities_laranite_raw'      => 'Laranite Ore',
-		'items_commodities_quantainium_raw'   => 'Quantainium Ore',
-		'items_commodities_quartz_raw'        => 'Quartz Ore',
-		'items_commodities_raw_ice,P'         => 'Ice Ore',
-		'items_commodities_raw_ouratite'      => 'Ouratite Ore',
-		'items_commodities_raw_silicon,P'     => 'Silicon Ore',
-		'items_commodities_sadaryx_raw'       => 'Sadaryx Ore',
-		'items_commodities_taranite_raw'      => 'Taranite Ore',
-		'items_commodities_agricium_ore'      => 'Agricium Ore',
-		'items_commodities_aluminum_ore'      => 'Aluminum Ore',
-		'items_commodities_borase_ore'        => 'Borase Ore',
-		'items_commodities_copper_ore'        => 'Copper Ore',
-		'items_commodities_gold_ore'          => 'Gold Ore',
-		'items_commodities_iron_ore,P'        => 'Iron Ore',
-		'items_commodities_jaclium_ore'       => 'Jaclium Ore',
-		'items_commodities_lindinium_ore'     => 'Lindinium Ore',
-		'items_commodities_riccite_ore'       => 'Riccite Ore',
-		'items_commodities_saldynium_ore'     => 'Saldynium Ore',
-		'items_commodities_savrilium_ore'     => 'Savrilium Ore',
-		'items_commodities_stileron_ore'      => 'Stileron Ore',
-		'items_commodities_tin_ore'           => 'Tin Ore',
-		'items_commodities_titanium_ore'      => 'Titanium Ore',
-		'items_commodities_torite_ore'        => 'Torite Ore',
-		'items_commodities_tungsten_ore'      => 'Tungsten Ore',
 	);
 	foreach ( $components_data as $key => $raw_value ) {
 		$comp_info = sc_loc_parse_component_value( $raw_value );
@@ -226,11 +188,14 @@ function sc_loc_handle_download() {
 			}
 		}
 	}
-
-	// Opdater global.ini indhold
-	if ( $global_ini_version !== '' ) {
-		$replacements['Frontend_PU_Version'] = $global_ini_version . ' ' . ( ! empty( $version_message ) ? $version_message . ' ' : '' ) . '\n' . SC_LOC_MESSAGE;
+	if (function_exists( 'trp_get_locale' ) ) {
+		$locale = trp_get_locale();
 	}
+	if ( empty( $locale ) ) {
+		$locale = get_locale();
+	}
+	// Opdater global.ini indhold
+	$replacements['Frontend_play_star_citizen,P'] = 'Language file generated '.strftime(substr($locale,0,2) == 'en' ? '%A %e. %B %l:%M %p %Y' : '%A %e. %B %k:%M %Y', time()).'\nRemember to update your file after game updates!';
 
 	$output = "";
 	foreach ( $global_content as $line ) {
