@@ -10,6 +10,14 @@ function sc_loc_frontend_shortcode() {
     if ( ! file_exists( SC_LOC_UPLOAD_DIR . '/components.ini' ) || ! file_exists( SC_LOC_UPLOAD_DIR . '/vehicles.ini' ) ) {
         return '<p>' . esc_html__( 'The necessary files have not been uploaded for Star Citizen localization yet.', 'sc-localization' ) . '</p>';
     }
+    $latestFileTime = null;
+    foreach (scandir(SC_LOC_UPLOAD_DIR) as $file) {
+        if (substr($file,-4) !== '.ini') continue;
+        $fileTime = filemtime(SC_LOC_UPLOAD_DIR.'/'.$file);
+        if ($latestFileTime < $fileTime) {
+            $latestFileTime = $fileTime;
+        }
+    }
 
     wp_enqueue_script( 'jquery-ui-sortable' );
     wp_enqueue_script( 'jquery-ui-draggable' );
@@ -176,7 +184,11 @@ function sc_loc_frontend_shortcode() {
             <button id="sc-loc-download-btn" class="button success"><?php
                 echo esc_html_x( 'Download', 'Frontend download button', 'sc-localization' ); ?><br/>
                 <strong><?php echo $global_ini_version ? '(' . esc_html( $global_ini_version ) . ')' : '(' . esc_html__( 'version not specified', 'sc-localization' ) . ')';
-                    ?></strong></button>
+                    ?></strong>
+            </button>
+            <?php if ($latestFileTime):?>
+            <br/><small><?php echo esc_html__('Last updated at', 'sc-localization').' <span class="no-translate" translate="no">'.sc_format_date_with_tp(esc_html__('EEEE d. MMMM h:mm a', 'sc-localization'), $latestFileTime).'</span>' ?></small>
+            <?php endif;?>
         </div>
 
         <div class="sc-loc-help" style="margin-top: 30px; border-left-color: #46b450;">

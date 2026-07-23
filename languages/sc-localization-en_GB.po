@@ -291,3 +291,12 @@ msgstr "global.ini is missing"
 
 msgid "version not specified"
 msgstr "version not specified"
+
+msgid "EEEE d. MMMM h:mm a"
+msgstr "EEEE d. MMMM h:mm a"
+
+msgid "Last updated at"
+msgstr "Last updated at"
+
+msgid "Language file generated"
+msgstr "Language file generated"

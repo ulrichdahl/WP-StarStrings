@@ -3,7 +3,7 @@
  * Plugin Name: Star Citizen Localization
  * Plugin URI: https://github.com/ulrichdahl/WP-StarStrings
  * Description: Star Citizen Localization Tool for WordPress.
- * Version: 1.4.6
+ * Version: 1.4.7
  * Author: Ulrich Dahl <ulrich.dahl@gmail.com>
  * Author URI: https://github.com/ulrichdahl/
  * License: GPL3
@@ -33,6 +33,38 @@ function sc_loc_activate() {
 	if ( ! file_exists( SC_LOC_UPLOAD_DIR ) ) {
 		wp_mkdir_p( SC_LOC_UPLOAD_DIR );
 	}
+}
+
+add_action( 'init', 'set_locale_from_translatepress' );
+function set_locale_from_translatepress() {
+	// Tjek om TranslatePress er aktivt
+	if ( function_exists( 'trp_get_locale' ) ) {
+		$current_lang = trp_get_locale(); // Returnerer f.eks. 'da_DK', 'de_DE', 'fr_FR'
+		// echo PHP_EOL.'<!-- '.__FILE__.':'.__LINE__.': '.$current_lang.'-->';
+
+		if ( $current_lang ) {
+			$current_lang = setlocale( LC_ALL, $current_lang );
+		}
+		// echo PHP_EOL.'<!-- '.__FILE__.':'.__LINE__.': '.$current_lang.' -->';
+		// echo PHP_EOL.'<!-- '.__FILE__.':'.__LINE__.': '.setlocale(LC_ALL, null).' -->';
+	}
+}
+
+function sc_format_date_with_tp($format = "EEEE d. MMMM HH:mm", $timestamp = null) {
+	// Hent TranslatePress sprog eller fald tilbage til WP standard
+	$lang = function_exists( 'trp_get_locale' ) ? trp_get_locale() : get_locale();
+
+	// Opret formatter (Locale, Dato-størrelse, Tids-størrelse, Tidszone, Kalender, Mønster)
+	$formatter = new IntlDateFormatter(
+		$lang,
+		IntlDateFormatter::FULL,
+		IntlDateFormatter::SHORT,
+		date_default_timezone_get(),
+		IntlDateFormatter::GREGORIAN,
+		$format
+	);
+
+	return $formatter->format( $timestamp ?? time());
 }
 
 require_once SC_LOC_PATH . 'admin/admin-menu.php';

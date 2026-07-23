@@ -58,7 +58,7 @@ function sc_loc_add_admin_menu() {
             'manage_options', // Capability
             'star-citizen', // Menu slug
             null, // Callback function
-                plugins_url('sc-localization/assets/scc-ogo.svg', 'sc-localization'), // Icon (WordPress Dashicon)
+                plugins_url('sc-localization/assets/scc-logo.svg', 'sc-localization'), // Icon (WordPress Dashicon)
             26
         );
     }
