@@ -196,7 +196,7 @@ function sc_loc_handle_download() {
 	}
 	//$replacements['Frontend_PU_Version,P'] = $version_message . '\n' . $global_ini_version;
 	$replacements['Frontend_play_star_citizen,P'] = 'Remember to update your language file!\nAfter every game update';
-	$replacements['ui_pregame_persistentuniverse_desc'] = '%existing%\n\nLanguage file generated '.strftime(substr($locale,0,2) == 'en' ? '%l:%M %p %e. %B %Y' : '%k:%M %e. %B %Y', time()) . ' at uniteddanes.org';
+	$replacements['ui_pregame_persistentuniverse_desc'] = '%existing%\n\nLanguage file generated '.strftime(substr($locale,0,2) == 'en' ? '%l:%M %p %Z %e. %B %Y' : '%k:%M %Z %e. %B %Y', time()) . ' at uniteddanes.org';
 
 	// Opdater global.ini indhold
 	$output = "";
